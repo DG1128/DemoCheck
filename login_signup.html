@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Login/Sign Up </title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#14b8a6",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24; font-size: 24px; }
+        .auth-form { display: none; }
+    </style>
+</head>
+
+<body class="font-display bg-gray-200 dark:bg-gray-800">
+    <div class="flex items-center gap-3 px-6 py-4">
+        <span class="text-2xl"><a href="index.html"><img src="logo.png" width="90vw" alt="logo"></a></span>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Your House</h3>
+    </div>
+
+    <div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark p-4 sm:p-6">
+        <div class="absolute inset-0 bg-slate-300/50 dark:bg-slate-900/50 backdrop-blur-sm"></div>
+
+        <div class="relative flex w-full max-w-md flex-col overflow-hidden rounded-xl bg-background-light dark:bg-background-dark shadow-2xl">
+            <button class="absolute top-4 right-4 z-10 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors">
+                <span class="material-symbols-outlined"><a href="index.html">close</a></span>
+            </button>
+
+            <div class="flex flex-col p-6 sm:p-8">
+                <!-- Message box (inline) -->
+                <div id="msgBox" class="hidden mx-4 mb-4 p-3 rounded-lg text-sm font-medium text-white"></div>
+
+                <!-- Tabs -->
+                <div class="flex px-4 py-3">
+                    <div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
+                        <label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:text-gray-900 dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium">
+                            <span class="truncate">Login</span>
+                            <input checked class="invisible w-0" type="radio" name="auth-toggle" id="loginToggle">
+                        </label>
+
+                        <label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:text-gray-900 dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium">
+                            <span class="truncate">Sign Up</span>
+                            <input class="invisible w-0" type="radio" name="auth-toggle" id="signupToggle">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ===================== LOGIN FORM ===================== -->
+                <div id="loginForm" class="auth-form">
+                    <h1 class="text-[#1f2937] dark:text-gray-100 tracking-tight text-[28px] font-bold px-4 pt-4">Welcome to your house</h1>
+                    <p class="text-gray-700 dark:text-gray-300 text-base pb-4 pt-1 px-4">Please enter your details to login.</p>
+
+                    <div class="flex flex-col gap-4 px-4">
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#1f2937] dark:text-gray-200 text-sm pb-2">Email Address</p>
+                            <input id="loginEmail" class="form-input rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 p-3" placeholder="you@email.com">
+                        </label>
+
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#1f2937] dark:text-gray-200 text-sm pb-2">Password</p>
+
+                            <div class="flex w-full items-stretch">
+                                <input id="loginPassword" type="password" class="form-input w-full rounded-l-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 p-3 border-r-0" placeholder="Enter your password">
+                                <div class="flex items-center justify-center px-3 rounded-r-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700">
+                                    <span class="material-symbols-outlined text-base">visibility_off</span>
+                                </div>
+                            </div>
+
+                            <a id="forgotPasswordLink" class="text-sm font-medium text-primary hover:underline self-end mt-2 cursor-pointer">Forgot Password?</a>
+                        </label>
+
+                    </div>
+
+                    <div class="px-4 pt-6 pb-4">
+                        <button id="loginBtn" class="w-full rounded-lg bg-primary h-12 text-white font-semibold hover:bg-teal-500">Login</button>
+                    </div>
+
+                </div>
+
+                <!-- ===================== SIGNUP FORM ===================== -->
+                <div id="signupForm" class="auth-form">
+                    <h1 class="text-[#1f2937] dark:text-gray-100 tracking-tight text-[28px] font-bold px-4 pt-4">Create Account</h1>
+                    <p class="text-gray-700 dark:text-gray-300 text-base pb-4 pt-1 px-4">Fill your details to sign up.</p>
+
+                    <div class="flex flex-col gap-4 px-4">
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#1f2937] dark:text-gray-200 text-sm pb-2">Full Name</p>
+                            <input id="signupName" class="form-input rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 p-3" placeholder="Your full name">
+                        </label>
+
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#1f2937] dark:text-gray-200 text-sm pb-2">Email Address</p>
+                            <input id="signupEmail" class="form-input rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 p-3" placeholder="you@email.com">
+                        </label>
+
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#1f2937] dark:text-gray-200 text-sm pb-2">Password</p>
+                            <input id="signupPassword" type="password" class="form-input rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 p-3" placeholder="Create a password">
+                        </label>
+
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#1f2937] dark:text-gray-200 text-sm pb-2">Confirm Password</p>
+                            <input id="signupConfirm" type="password" class="form-input rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 p-3" placeholder="Confirm password">
+                        </label>
+                    </div>
+
+                    <div class="px-4 pt-6 pb-4">
+                        <button id="signupBtn" class="w-full rounded-lg bg-primary h-12 text-white font-semibold hover:bg-teal-500">Create Account</button>
+                    </div>
+
+                </div>
+
+                <!-- HR + Google + FB same design -->
+                <div class="flex items-center gap-4 px-4 py-2">
+                    <hr class="flex-1 border-t border-gray-300 dark:border-gray-600" />
+                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">OR</p>
+                    <hr class="flex-1 border-t border-gray-300 dark:border-gray-600" />
+                </div>
+
+                <div class="flex flex-col gap-3 px-4 py-4">
+
+                    <button id="googleBtn" class="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 px-6 text-[#1f2937] dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="h-5 w-5" alt="google">
+                        <span>Continue with Google</span>
+                    </button>
+
+                    <button id="facebookBtn" class="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 h-12 px-6 text-[#1f2937] dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" class="h-5 w-5" alt="facebook">
+                        <span>Continue with Facebook</span>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle Script (keeps UX same) -->
+    <script>
+        const loginToggle = document.getElementById("loginToggle");
+        const signupToggle = document.getElementById("signupToggle");
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+
+        // Show login by default
+        loginForm.style.display = "block";
+
+        loginToggle.addEventListener("change", () => {
+            loginForm.style.display = "block";
+            signupForm.style.display = "none";
+        });
+
+        signupToggle.addEventListener("change", () => {
+            signupForm.style.display = "block";
+            loginForm.style.display = "none";
+        });
+    </script>
+
+    <!-- Firebase (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+
+    <!-- Auth Logic -->
+    <script>
+        // message box helper
+        function showMessage(text, type = "success") {
+            const box = document.getElementById("msgBox");
+            const base = "mx-4 mb-4 p-3 rounded-lg text-sm font-medium text-white ";
+            box.className = base + (type === "error" ? "bg-red-500" : type === "warning" ? "bg-yellow-500" : "bg-green-500");
+            box.innerText = text;
+            box.style.display = "block";
+            setTimeout(() => box.style.display = "none", 3500);
+        }
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCvLYIhxscfR7fyUW0qBGMd2SMfRMBv2j0",
+            authDomain: "renteasy-12c60.firebaseapp.com",
+            projectId: "renteasy-12c60",
+            storageBucket: "renteasy-12c60.firebasestorage.app",
+            messagingSenderId: "1061764678588",
+            appId: "1:1061764678588:web:ac801c6587c6b5f04321b9"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const googleProvider = new firebase.auth.GoogleAuthProvider();
+        const facebookProvider = new firebase.auth.FacebookAuthProvider();
+
+        // Keep tabs behavior (unchanged)
+        loginForm.style.display = "block";
+        loginToggle.onchange = () => { loginForm.style.display = "block"; signupForm.style.display = "none"; };
+        signupToggle.onchange = () => { signupForm.style.display = "block"; loginForm.style.display = "none"; };
+
+        /* SIGNUP: create account, send verification email, stay signed in, redirect to verify page */
+        signupBtn.onclick = async () => {
+            const name = signupName.value.trim();
+            const email = signupEmail.value.trim();
+            const pass = signupPassword.value;
+            const confirm = signupConfirm.value;
+
+            if (!email || !pass) return showMessage("Please enter email and password", "warning");
+            if (pass !== confirm) return showMessage("Passwords do not match", "error");
+
+            try {
+                const userCred = await auth.createUserWithEmailAndPassword(email, pass);
+                // optional: update profile displayName
+                if (name) {
+                    await userCred.user.updateProfile({ displayName: name });
+                }
+
+                // send verification email
+                await userCred.user.sendEmailVerification();
+
+                // redirect to verify page (we keep user signed-in so verify page can detect)
+                setTimeout(() => {
+                    window.location.href = "verify-email.html?email=" + encodeURIComponent(email);
+                }, 700);
+
+            } catch (err) {
+                showMessage(err.message, "error");
+            }
+        };
+
+        /* LOGIN: allow only if verified */
+        loginBtn.onclick = async () => {
+            const email = loginEmail.value.trim();
+            const pass = loginPassword.value;
+            if (!email || !pass) return showMessage("Enter email and password", "warning");
+
+            try {
+                const res = await auth.signInWithEmailAndPassword(email, pass);
+                await res.user.reload();
+
+                if (!res.user.emailVerified) {
+                    showMessage("Please verify your email before logging in.", "warning");
+                    await auth.signOut();
+                    return;
+                }
+
+                showMessage("Login successful!", "success");
+                setTimeout(() => {
+                    // redirect back to homepage after login
+                    window.location.href = "mindex.html";
+                }, 700);
+
+            } catch (err) {
+                showMessage(err.message, "error");
+            }
+        };
+
+        /* Social logins */
+        googleBtn.onclick = async () => {
+            try {
+                await auth.signInWithPopup(googleProvider);
+                // social providers usually have verified emails
+                setTimeout(() => window.location.href = "mindex.html", 600);
+            } catch (err) {
+                showMessage(err.message, "error");
+            }
+        };
+
+        facebookBtn.onclick = async () => {
+            try {
+                await auth.signInWithPopup(facebookProvider);
+                setTimeout(() => window.location.href = "mindex.html", 600);
+            } catch (err) {
+                showMessage(err.message, "error");
+            }
+        };
+
+        /* Forgot password */
+        forgotPasswordLink.onclick = async () => {
+            const email = loginEmail.value.trim();
+            if (!email) return showMessage("Please enter your email in the email field", "warning");
+            try {
+                await auth.sendPasswordResetEmail(email);
+                showMessage("Password reset link sent!", "success");
+            } catch (err) {
+                showMessage(err.message, "error");
+            }
+        };
+
+        // optional: display different UI or friendly messages on auth state changes
+        auth.onAuthStateChanged((user) => {
+            // no UX changes needed here; header in index.html will react
+            // but we keep this in case you want to show user info on this page later
+        });
+    </script>
+</body>
+
+</html>

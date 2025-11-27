@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us - RentEasy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- MAPBOX -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        
+        <!-- NAVBAR (same) -->
+        <header
+            class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+            <nav class="container mx-auto px-4 lg:px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white">Your House</h2>
+                    </div>
+                    <div class="hidden lg:flex items-center gap-9">
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                            href="mindex.html">Home</a>
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                            href="mabout.html">About us</a>
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                            href="mcontact.html">Contact</a>
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                            href="mhelp.html">Help</a>
+                    </div>
+                    <div class="hidden lg:flex items-center gap-2">
+                       <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-all">
+                            <span class="truncate"><a href="upload_photos.html">Listing Property</a></span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- MAIN -->
+        <main class="flex-1">
+            <div class="container mx-auto px-4 lg:px-6 py-12 md:py-20">
+
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-[#111418] dark:text-white">Get in
+                        Touch</h1>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500 dark:text-gray-400">
+                        Fill out the form below, and our team will get back to you within 24 hours.</p>
+                </div>
+
+                <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+
+                    <!-- CONTACT FORM -->
+                    <div class="bg-white dark:bg-gray-900/50 p-8 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800">
+
+                        <form action="https://formspree.io/f/mwpavoyp" method="POST" class="space-y-6" id="contactForm">
+
+                            <div>
+                                <label class="block text-sm font-medium text-[#111418] dark:text-gray-300 pb-2">Full Name</label>
+                                <input name="name" required placeholder="Enter Full Name"
+                                    class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border dark:border-gray-700 bg-background-light dark:bg-background-dark h-12 p-3" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-[#111418] dark:text-gray-300 pb-2">Email Address</label>
+                                <input type="email" name="email" required placeholder="you@email.com"
+                                    class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border dark:border-gray-700 bg-background-light dark:bg-background-dark h-12 p-3" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-[#111418] dark:text-gray-300 pb-2">Subject</label>
+                                <input name="subject" required placeholder="e.g. Question about a listing"
+                                    class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border dark:border-gray-700 bg-background-light dark:bg-background-dark h-12 p-3" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-[#111418] dark:text-gray-300 pb-2">Message</label>
+                                <textarea name="message" required placeholder="Enter your message..." rows="4"
+                                    class="form-textarea flex w-full rounded-lg text-[#111418] dark:text-white border dark:border-gray-700 bg-background-light dark:bg-background-dark p-3"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full flex justify-center items-center h-12 px-6 bg-primary text-white text-base font-bold rounded-lg hover:bg-primary/90">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <p id="formSuccess" class="hidden text-green-600 font-semibold mt-3">
+                            ✔ Message sent successfully!
+                        </p>
+                    </div>
+
+                    <!-- CONTACT INFO + MAP -->
+                    <div class="space-y-10">
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-bold text-[#111418] dark:text-white">Contact Information</h3>
+
+                            <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                                <a class="flex items-center gap-4 group">
+                                    <span class="material-symbols-outlined text-primary text-2xl">mail</span>
+                                    <span class="group-hover:text-primary transition-colors">TeamRadhe01@gmail.com</span>
+                                </a>
+                                <a class="flex items-center gap-4 group">
+                                    <span class="material-symbols-outlined text-primary text-2xl">call</span>
+                                    <span class="group-hover:text-primary transition-colors">+1 (234) 567-890</span>
+                                </a>
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary text-2xl mt-0.5">location_on</span>
+                                    <span>Office no 6<br>Radhe Info<br>Vasad, 388306</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MAP BOX -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#111418] dark:text-white mb-4">Our Office Location</h3>
+                            <div id="map" class="aspect-video w-full overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER (same) -->
+        <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-4 lg:px-6 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">© 2025 Your House. All rights reserved.</p>
+                    <div class="flex items-center gap-6">
+                        <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary" href="#">Privacy Policy</a>
+                        <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary" href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MAP SCRIPT -->
+    <script>
+        mapboxgl.accessToken = "pk.eyJ1IjoiZGcxMTI4IiwiYSI6ImNtaHllZ3JnbzA0cTQybXF6aXM4ZnlkamUifQ.junTrtJGCsdbykv2PwiBQg";
+        const officeLocation = [73.0007, 22.4732];
+
+        const map = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/outdoors-v12",
+            center: officeLocation,
+            zoom: 15
+        });
+
+        new mapboxgl.Marker({ color: "#197fe6" })
+            .setLngLat(officeLocation)
+            .addTo(map);
+    </script>
+
+    <!-- FORMSPREE SCRIPT -->
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const form = event.target;
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { Accept: "application/json" }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById("formSuccess").classList.remove("hidden");
+                    form.reset();
+                } else {
+                    alert("Error submitting form.");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

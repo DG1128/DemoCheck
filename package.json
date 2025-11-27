@@ -1,0 +1,16 @@
+{
+  "name": "your-house-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.84.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.6.0",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "postgres": "^3.4.7"
+  }
+}

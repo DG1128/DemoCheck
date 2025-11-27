@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Home page</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <!-- TopNavBar Section -->
+        <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div class="container mx-auto px-6 py-4">
+                <nav class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl"><a href="index.html"><img src="logo.png" width="90vw"></a></span>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white">Your House</h2>
+                    </div>
+                    <div class="hidden md:flex flex-1 items-center justify-center gap-8">
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="index.html">Home</a>
+
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="about.html">About us</a>
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="contact.html">Contact</a>
+                        <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="help.html">Help</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+
+                       
+                        <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-all">
+                            <span class="truncate"><a href="login_signup.html">Login</a></span>
+                        </button>
+
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main class="flex-grow">
+            <!-- HeroSection Section -->
+            <section class="relative">
+                <div class="container mx-auto px-6 py-20 md:py-32">
+                    <div class="flex min-h-[480px] flex-col items-center justify-center gap-8 rounded-xl bg-cover bg-center p-6 text-center"
+                        data-alt="Stylized modern interior of a living room with large windows"
+                        style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("index.jpg");'>
+                        <div class="flex flex-col gap-2">
+                            <h1 class="text-white text-4xl font-black leading-tight tracking-tighter md:text-6xl">
+                                તમારા ઘર સાથે તમારું સંપૂર્ણ ઘર શોધો
+                            </h1>
+                            <p class="text-white text-base font-normal leading-normal md:text-lg">
+                                Search properties by city, village, or location.
+                            </p>
+                        </div>
+                        <label class="flex flex-col h-14 w-full max-w-xl md:h-16">
+                            <div class="flex w-full flex-1 items-stretch rounded-full h-full shadow-lg">
+                                <div
+                                    class="text-gray-500 flex items-center justify-center pl-5 bg-white dark:bg-gray-800 rounded-l-full border border-gray-300 dark:border-gray-600 border-r-0">
+                                    <span class="material-symbols-outlined text-xl">search</span>
+                                </div>
+                                <input
+                                    class="form-input w-full min-w-0 flex-1 resize-none overflow-hidden text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 border-l-0 border-r-0 text-base font-normal"
+                                    placeholder="Enter your area or village name..." value="" />
+                                <div
+                                    class="flex items-center justify-center rounded-r-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 pr-2 border-l-0">
+                                    <button
+                                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 md:h-12 md:px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-all">
+                                        <span class="truncate">Search</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer Section -->
+        <footer class="bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col items-center gap-6 py-10 text-center">
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="https://www.facebook.com/">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+                                <path clip-rule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="https://www.instagram.com/accounts/login/?next=%2Ffacebook%2F&source=omni_redirect&hl=en">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+                                <path clip-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm6.406-11.845a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                            href="https://x.com">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">© 2025 Your House.
+                        All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Firebase (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+
+    <script>
+        // ---------- Firebase config (same as you provided) ----------
+        const firebaseConfig = {
+            apiKey: "AIzaSyCvLYIhxscfR7fyUW0qBGMd2SMfRMBv2j0",
+            authDomain: "renteasy-12c60.firebaseapp.com",
+            projectId: "renteasy-12c60",
+            storageBucket: "renteasy-12c60.firebasestorage.app",
+            messagingSenderId: "1061764678588",
+            appId: "1:1061764678588:web:ac801c6587c6b5f04321b9"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Keep a simple header auth UI: shows Login (when logged out) or a Logout button with email when logged in.
+        const authContainer = document.getElementById('authContainer');
+
+        function renderLoggedOut() {
+            authContainer.innerHTML = `
+                <button id="loginHeaderBtn" class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-opacity-90 transition-all">
+                    <a href="login_signup.html" class="block w-full">Login</a>
+                </button>
+            `;
+        }
+
+        function renderLoggedIn(user) {
+            // small button showing "Logout" — keeps the design consistent
+            authContainer.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-gray-700 dark:text-gray-300 hidden md:block">Hello, ${user.email}</span>
+                    <button id="logoutBtn" class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-white border border-gray-300 text-sm font-medium hover:bg-gray-50 transition-all">
+                        Logout
+                    </button>
+                </div>
+            `;
+            document.getElementById('logoutBtn').addEventListener('click', async () => {
+                await auth.signOut();
+                // as you requested, after logout redirect to login page
+                window.location.href = "index.html";
+            });
+        }
+
+        // Watch auth state to toggle header button
+        auth.onAuthStateChanged((user) => {
+            if (user) renderLoggedIn(user);
+            else renderLoggedOut();
+        });
+    </script>
+    
+</body>
+
+</html>

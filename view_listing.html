@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Property Details</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800">
+
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                 <span class="text-2xl"><a href="index.html"><img src="logo.png" width="90vw" alt="logo"></a></span>
+                <span class="text-xl font-extrabold text-blue-600 tracking-tight">Your House</span>
+            </div>
+            <a href="main_home.html" class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+                <i class="ri-arrow-left-line"></i> Back to Search
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <div id="loader" class="flex flex-col items-center justify-center h-64">
+            <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+            <p class="mt-3 text-gray-500 text-sm">Loading details...</p>
+        </div>
+
+        <div id="content" class="hidden animate-fade-in">
+            
+            <div class="mb-6">
+                <h1 id="v_title" class="text-3xl md:text-4xl font-bold text-slate-900 mb-2"></h1>
+                <div class="flex items-center text-gray-500 gap-2 text-sm md:text-base">
+                    <i class="ri-map-pin-fill text-blue-500"></i>
+                    <span id="v_location"></span>
+                </div>
+            </div>
+
+            <div id="v_photos_container" class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-2 h-[350px] md:h-[450px] rounded-2xl overflow-hidden mb-8 shadow-sm">
+                </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-wrap justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="ri-hotel-bed-line text-xl"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Bedrooms</p>
+                                <p class="font-bold text-lg"><span id="v_bed"></span> BHK</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="ri-drop-line text-xl"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Bathrooms</p>
+                                <p class="font-bold text-lg"><span id="v_bath"></span></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="ri-ruler-2-line text-xl"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Area</p>
+                                <p class="font-bold text-lg"><span id="v_area"></span> sqft</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="ri-home-gear-line text-xl"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Type</p>
+                                <p class="font-bold text-lg capitalize" id="v_type"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">About this property</h3>
+                        <div class="prose text-gray-600 leading-relaxed">
+                            <p id="v_desc"></p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Amenities</h3>
+                        <ul id="v_amenities" class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            </ul>
+                    </div>
+
+                    <div id="video_section" class="hidden">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Property Video</h3>
+                        <div class="relative rounded-xl overflow-hidden shadow-lg bg-black aspect-video">
+                            <video id="v_video" controls class="w-full h-full"></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 sticky top-24">
+                        <p class="text-sm text-gray-500 font-medium mb-1">Monthly Rent</p>
+                        <div class="flex items-end gap-1 mb-6">
+                            <span class="text-3xl font-bold text-blue-600">₹<span id="v_price"></span></span>
+                        </div>
+
+                        <div class="space-y-4 mb-6">
+                            <div class="flex justify-between py-2 border-b border-gray-50">
+                                <span class="text-gray-500">City</span>
+                                <span class="font-medium text-slate-900" id="v_city"></span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-50">
+                                <span class="text-gray-500">Area/Locality</span>
+                                <span class="font-medium text-slate-900" id="v_localarea"></span>
+                            </div>
+                        </div>
+
+                        <p class="text-center text-xs text-gray-400 mt-4">
+                            <i class="ri-shield-check-line align-middle"></i> Verified Listing
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+<script>
+    // --- CONFIG: Live URLs ---
+    const RENDER_API_URL = "https://democheck-zv5p.onrender.com";
+    const SUPABASE_BASE_URL = "https://wajkisiwqfqoihleibtl.supabase.co/storage/v1/object/public/listing_images/";
+
+    // --- MAPPING RAW VALUES TO ICONS & TEXT ---
+    const amenityConfig = {
+        "wifi": { label: "Wi-Fi", icon: "ri-wifi-line" },
+        "tv": { label: "TV", icon: "ri-tv-2-line" },
+        "ac": { label: "Air Conditioning", icon: "ri-temp-cold-line" },
+        "heating": { label: "Heating", icon: "ri-fire-line" },
+        "washer": { label: "Washer", icon: "ri-shirt-line" },
+        "dryer": { label: "Dryer", icon: "ri-windy-line" },
+        "refrigerator": { label: "Refrigerator", icon: "ri-fridge-line" },
+        "stove": { label: "Stove", icon: "ri-fire-fill" },
+        "microwave": { label: "Microwave", icon: "ri-rfid-line" },
+        "coffee_maker": { label: "Coffee Maker", icon: "ri-cup-line" },
+        "dishwasher": { label: "Dishwasher", icon: "ri-drop-line" },
+        "smoke_alarm": { label: "Smoke Alarm", icon: "ri-alarm-warning-line" },
+        "co_alarm": { label: "CO Alarm", icon: "ri-alert-line" },
+        "first_aid_kit": { label: "First Aid Kit", icon: "ri-first-aid-kit-line" },
+        "fire_extinguisher": { label: "Fire Extinguisher", icon: "ri-fire-extinguisher-line" }
+    };
+
+    async function loadListing() {
+        const id = localStorage.getItem("selectedListingId");
+        const loader = document.getElementById("loader");
+        const content = document.getElementById("content");
+
+        if (!id) {
+            alert("No listing selected!");
+            window.location.href = "main_home.html";
+            return;
+        }
+
+        try {
+            // FIXED 1: Replaced localhost:8080 with RENDER_API_URL
+            const res = await fetch(`${RENDER_API_URL}/get-final-listing/${id}`);
+            const data = await res.json();
+
+            if (!data || !data.data) {
+                alert("Unable to load property!");
+                return;
+            }
+
+            const d = data.data; 
+
+            // --- TEXT FIELDS ---
+            document.getElementById("v_title").textContent = d.property_title;
+            document.getElementById("v_desc").textContent = d.description;
+            
+            // Format Price
+            document.getElementById("v_price").textContent = Number(d.price).toLocaleString('en-IN');
+
+            document.getElementById("v_city").textContent = d.city;
+            document.getElementById("v_localarea").textContent = d.area;
+            document.getElementById("v_location").textContent = `${d.area}, ${d.city}`;
+
+            document.getElementById("v_type").textContent = d.property_type;
+            document.getElementById("v_bed").textContent = d.bedrooms;
+            document.getElementById("v_bath").textContent = d.bathrooms;
+            document.getElementById("v_area").textContent = d.total_area;
+
+            // --- PHOTOS ---
+            const container = document.getElementById("v_photos_container");
+            container.innerHTML = "";
+            
+            let images = [];
+            ["image1", "image2", "image3", "image4"].forEach(k => {
+                if(d[k]) images.push(d[k]);
+            });
+
+            if (images.length > 0) {
+                images.forEach((img, index) => {
+                    // FIXED 2: Image URL now uses Supabase Storage Base URL
+                    const imageUrl = SUPABASE_BASE_URL + img;
+
+                    let wrapperClass = "overflow-hidden relative bg-gray-200";
+                    if(index === 0) wrapperClass += " md:col-span-2 md:row-span-2"; 
+                    else wrapperClass += " md:col-span-1 md:row-span-1";
+
+                    container.innerHTML += `
+                        <div class="${wrapperClass}">
+                            <img src="${imageUrl}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" alt="Property">
+                        </div>
+                    `;
+                });
+            } else {
+                container.innerHTML = `<div class="col-span-4 row-span-2 flex items-center justify-center bg-gray-200 text-gray-500 h-full">No Images Available</div>`;
+            }
+
+            // --- VIDEO ---
+            if (d.video) {
+                // FIXED 3: Video URL now uses Supabase Storage Base URL
+                document.getElementById("v_video").src = SUPABASE_BASE_URL + d.video;
+                document.getElementById("video_section").classList.remove("hidden");
+            }
+
+/// ===== AMENITIES – PERMANENT STABLE SYSTEM =====
+const am = document.getElementById("v_amenities");
+am.innerHTML = "";
+
+// Supports JSON format & future DB changes
+let amenitiesObj = {};
+
+if (d.amenities) {
+    try {
+        amenitiesObj = JSON.parse(d.amenities); // future proof for all JSON
+    } catch {
+        // if someone manually stores comma text in DB
+        d.amenities.split(",").forEach(a => amenitiesObj[a.trim()] = 1);
+    }
+
+    const selected = Object.entries(amenitiesObj)
+        .filter(([_, val]) => val == 1 || val === true);
+
+    if (selected.length === 0) {
+        am.innerHTML = `<p class="text-gray-500 italic col-span-full">No amenities provided</p>`;
+    } else {
+        selected.forEach(([key]) => {
+            const item = amenityConfig[key.toLowerCase()] || {
+                label: key.replace(/_/g," ").replace(/\b\w/g,l=>l.toUpperCase()),
+                icon: "ri-checkbox-circle-line"
+            };
+
+            am.innerHTML += `
+            <li class="flex items-center gap-2 bg-white border px-4 py-3 rounded-xl shadow-sm hover:shadow-md duration-200">
+                <i class="${item.icon} text-blue-600 text-[20px]"></i>
+                <span class="font-medium">${item.label}</span>
+            </li>`;
+        });
+    }
+} else {
+    am.innerHTML = `<p class="text-gray-500 italic col-span-full">No amenities listed</p>`;
+}
+
+
+
+            // Reveal Content
+            loader.classList.add("hidden");
+            content.classList.remove("hidden");
+
+            } catch (error) {
+                console.error(error);
+                alert("Server connection failed.");
+            }
+        }
+
+    loadListing();
+</script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html> 
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>RentEasy - Upload Photos &amp; Media</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "secondary": "#6B7280",
+                        "text-light": "#111827",
+                        "text-dark": "#F9FAFB",
+                        "success": "#10B981",
+                        "error": "#EF4444",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Your House</h2>
+                </div>
+                <div class="hidden md:flex flex-1 items-center justify-center gap-8">
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mindex.html">Home</a>
+
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mabout.html">About us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mcontact.html">Contact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mhelp.html">Help</a>
+                </div>
+
+            </nav>
+        </div>
+        </header>
+        <div class="relative flex min-h-screen w-full flex-col">
+            <div class="flex-grow">
+                <main class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                    <div class="mx-auto max-w-4xl">
+                        <!-- Page Heading -->
+                        <div class="mb-10 flex flex-wrap items-start justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <h1
+                                    class="text-3xl font-extrabold tracking-tight text-text-light dark:text-text-dark sm:text-4xl">
+                                    Showcase Your Property</h1>
+                                <p class="text-secondary text-base font-normal">Add high-quality photos to attract more
+                                    tenants. The first photo will be the main cover image.</p>
+                            </div>
+                            <button
+                                class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark px-4 py-2 text-sm font-semibold text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-800">
+                                <span class="material-symbols-outlined text-base">photo_library</span>
+                                <span id="uploadPhotoBtn">Upload Photos</span>
+
+                            </button>
+                        </div>
+                        <!-- Empty State / Uploader -->
+                         
+                        <div class="mb-12" >
+                            <div
+                                class="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 px-6 py-14 text-center"  id="dropArea">
+                                <span class="material-symbols-outlined text-5xl text-primary mb-4">cloud_upload</span>
+                                <div class="flex max-w-md flex-col items-center gap-2" >
+                                    <p class="text-lg font-bold text-text-light dark:text-text-dark">Drag &amp; drop
+                                        your
+                                        photos here</p>
+                                    <p class="text-sm text-secondary">or click to browse. Supports JPG, PNG. Min
+                                        resolution:
+                                        1024x768px.</p>
+                                </div>
+                                <button
+                                    class="mt-6 flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90">
+                                    <span class="truncate" id="uploadPhotoBtn">Upload Photos</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Uploaded Photos Section -->
+                        <div class="mb-12">
+                            <h2 class="text-xl font-bold tracking-tight text-text-light dark:text-text-dark pb-4">
+                                Uploaded
+                                Photos (4)</h2>
+                            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                                <!-- Image Card 1 - Primary -->
+                                <div class="group relative aspect-square overflow-hidden rounded-lg">
+                                    <img alt="Modern living room with a gray sofa and wooden coffee table"
+                                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnu94YCqySlOmo__62MPTpZClZxQ9YoqmgXzkBBBW577mnJj7SsHA1liBcfKWT2p5eiqog9oGkKI8W2jG6Ol5zFRWf604cSE1DMvabCOIaZOJV3bF2YaVTQpVLF1Qri0ViZ9xN2EdbbyhRsTB6xEUO4yTMkuqLYKis0J24A6yuGp_0vYZQodGM_W8KYHZY1qmwYTdetFYxa1wzdrV0HHX5wt0Wk9wC4es2reyybYShgncEJk8Xtw6F5PV8GLxSCnLHdlAO_HWoII8" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                    <div class="absolute bottom-0 left-0 p-3">
+                                        <div
+                                            class="flex items-center gap-2 rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-white">
+                                            <span class="material-symbols-outlined !text-sm">star</span>
+                                            <span>Primary</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute right-2 top-2 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+                                        <button class="btnDelete flex h-8 w-8 ...">
+                                            <span class="material-symbols-outlined !text-xl">delete</span>
+                                        </button>
+                                        <button
+                                            class="flex h-8 w-8 cursor-grab items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/30 active:cursor-grabbing">
+                                            <span class="material-symbols-outlined !text-xl">drag_indicator</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Image Card 2 -->
+                                <div class="group relative aspect-square overflow-hidden rounded-lg">
+                                    <img alt="Spacious kitchen with modern appliances and a central island"
+                                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN7weu01UL1YeNLAwUEZmAgB5R2BKt03W6b2OKkh85fupmrwoVuyZjT6Z_Q9uou3lZO2iVBEx7AqvhZaSttlo_Ph7jT2Xr_5uzMmCNDGXTUOQ4UzHRbZ__-q6M34mNNwTWNQt6juNcbHhtwJP96HSw8fsk91jDFqHYyMUQAdGtQS_etbA1rX9ji80TYxwLkPVDtsCPaebkVKshbMzAPBnATRtH98eCrfnqQ3GR7kYO3lrlpWJZBMUC809N_FPH4tkyQ7OB5h1nefM" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                    <div
+                                        class="absolute right-2 top-2 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+                                        <button class="btnDelete flex h-8 w-8 ...">
+                                            <span class="material-symbols-outlined !text-xl">delete</span>
+                                        </button>
+                                        <button
+                                            class="flex h-8 w-8 cursor-grab items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/30 active:cursor-grabbing">
+                                            <span class="material-symbols-outlined !text-xl">drag_indicator</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Image Card 3 with Progress -->
+                                <div class="group relative aspect-square overflow-hidden rounded-lg">
+                                    <img alt="Bright bedroom with a large bed and window"
+                                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1JMBLj22uHklweiP74QBDumVcvXW-BJVc9egRH9RByplbyMhr3vY7Xr26JyGsE0hqnrCC4u7uYzRQcaQKJ_79jv9mqaqmbXnQP77w5h3HN9ZBQwOwnKO3TB9T-ner9AgtW7hjrslDuoy93zJwfbEel6X0-Le6oEyg2kPueD1f6UiUb_RO3tCWVF_XwUkduaXMywlEWmTe3nYqOmJSmrzTV-1wXgVw-lVNM2TpweYMO1sVJ--dFi1eHOIWbP_uVRVuTZ4d-lQ6Jw" />
+                                    <div class="absolute inset-0 bg-black/50"></div>
+                                    <div
+                                        class="absolute right-2 top-2 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+                                        <button class="btnDelete flex h-8 w-8 ...">
+                                            <span class="material-symbols-outlined !text-xl">delete</span>
+                                        </button>
+                                        <button
+                                            class="flex h-8 w-8 cursor-grab items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/30 active:cursor-grabbing">
+                                            <span class="material-symbols-outlined !text-xl">drag_indicator</span>
+                                        </button>
+                                    </div>
+                                    <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                                        <div class="w-full rounded-full bg-gray-700">
+                                            <div
+                                        class="absolute right-2 top-2 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+                                        <button class="btnDelete flex h-8 w-8 ...">
+                                            <span class="material-symbols-outlined !text-xl">delete</span>
+                                        </button>
+                                        <button
+                                            class="flex h-8 w-8 cursor-grab items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/30 active:cursor-grabbing">
+                                            <span class="material-symbols-outlined !text-xl">drag_indicator</span>
+                                        </button>
+                                    </div>
+                                            <div class="rounded-full bg-primary p-0.5 text-center text-xs font-medium leading-none text-blue-100"
+                                                style="width: 75%">75%</div>
+                                        </div>
+                                        <p class="mt-2 text-sm text-white">Uploading...</p>
+                                    </div>
+                                </div>
+                                <!-- Image Card 4 with Error -->
+                                <div
+                                    class="group relative aspect-square overflow-hidden rounded-lg border-2 border-error">
+                                    <img alt="Stylish bathroom with a modern sink and mirror"
+                                        class="h-full w-full object-cover opacity-50 transition-transform duration-300 group-hover:scale-105"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyzKhFpQX4spEL2IkBfi4nSOkTHocUI8aS8XRS3NG6tUNrv47a_DZ6yQTQyO5y4XdnfwyQe7HUt4YhPw9WrbeX_UjtBYjDRBRjFF0TQSWvATFDqBShK_G0EsdwKJTm6ipgKQ3qWPQnvOiLAdbPa7_f3-dFPzBta_fKhLk-Caw0AZly4f0gpTipYR59vTTQVQ6RSw5thEO5xtvcAWYovrSnh7KACr5GL7KNodHfYnFNmgrNKnRBhrXBF095ZuZbgaRe6A5LN5A3Xbg" />
+                                    <div class="absolute inset-0 bg-black/50"></div>
+                                    <div
+                                        class="absolute right-2 top-2 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+                                        <button class="btnDelete flex h-8 w-8 ...">
+                                            <span class="material-symbols-outlined !text-xl">delete</span>
+                                        </button>
+                                        <button
+                                            class="flex h-8 w-8 cursor-grab items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/30 active:cursor-grabbing">
+                                            <span class="material-symbols-outlined !text-xl">drag_indicator</span>
+                                        </button>
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+                                        <span class="material-symbols-outlined text-3xl text-error">error</span>
+                                        <p class="mt-1 text-sm font-semibold text-white">Upload Failed</p>
+                                        <p class="text-xs text-gray-300">File is too large</p>
+                                        <div
+                                        class="absolute right-2 top-2 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+                                        <button class="btnDelete flex h-8 w-8 ...">
+                                            <span class="material-symbols-outlined !text-xl">delete</span>
+                                        </button>
+                                        <button
+                                            class="flex h-8 w-8 cursor-grab items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/30 active:cursor-grabbing">
+                                            <span class="material-symbols-outlined !text-xl">drag_indicator</span>
+                                        </button>
+                                    </div>
+                                        <button
+                                            class="mt-2 rounded-md bg-error/80 px-2 py-1 text-xs text-white hover:bg-error">Try
+                                            again</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video Upload Section -->
+                        <div class="mb-12">
+                            <h2 class="text-xl font-bold tracking-tight text-text-light dark:text-text-dark pb-4">Video
+                                Tour
+                                (Optional)</h2>
+                            <div
+                                class="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 px-6 py-10 text-center">
+                                <span class="material-symbols-outlined text-4xl text-secondary mb-3">videocam</span>
+                                <p class="text-base font-semibold text-text-light dark:text-text-dark">Add a short video
+                                    tour</p>
+                                <p class="mb-5 text-sm text-secondary">Drag &amp; drop or click to upload. Max 100MB.
+                                </p>
+                                <button
+                                    class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark px-4 py-2 text-sm font-semibold text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-800">
+                                    <span class="truncate" id="uploadVideoBtn">Upload Video</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Navigation Buttons -->
+                        <div
+                            class="mt-16 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-6">
+                            <button
+                                class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark px-5 py-2.5 text-sm font-semibold text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-800">
+                                <span><a href="mindex.html">Back</a></span>
+                            </button>
+                            <button
+                                class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90">
+                                <span><a href="step_1.html" id="save&continue">Save &amp; Continue</a></span>
+                            </button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+    // NEW LISTING: Only when NOT editing draft
+    const url = new URLSearchParams(location.search);
+    const draftId = url.get("draftId") || localStorage.getItem("draftId");
+
+    if (!draftId) {
+        localStorage.removeItem("listingId");
+        let ok = await createNewListing();
+        if (!ok) {
+            alert("Unable to create listing. Please reload page.");
+            return;
+        }
+        console.log("Listing Loaded:", localStorage.getItem("listingId"));
+    }
+});
+
+// ------------------------------------------------------
+// BACKEND LISTING CREATION (KEEP THIS — important for publish)
+// ------------------------------------------------------
+async function createNewListing() {
+    try {
+        const res = await fetch("https://democheck-zv5p.onrender.com/create-listing");
+        const data = await res.json();
+
+        if (data.status === "success") {
+            localStorage.setItem("listingId", data.listing_id);
+            console.log("🎉 Listing Created:", data.listing_id);
+            return true;
+        }
+        return false;
+
+    } catch (err) {
+        console.error(err);
+        return false;
+    }
+}
+</script>
+
+
+<!-- ---------------------------------------------------------
+     DUAL UPLOAD SYSTEM (BACKEND + SUPABASE FOR DRAFTS)
+---------------------------------------------------------- -->
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+
+<script>
+firebase.initializeApp({
+    apiKey: "AIzaSyCvLYIhxscfR7fyUW0qBGMd2SMfRMBv2j0",
+    authDomain: "renteasy-12c60.firebaseapp.com",
+    projectId: "renteasy-12c60",
+    storageBucket: "renteasy-12c60.firebasestorage.app",
+    messagingSenderId: "1061764678588",
+    appId: "1:1061764678588:web:ac801c6587c6b5f04321b9"
+});
+
+window.auth = firebase.auth(); // so your existing code works
+</script>
+
+<script type="module">
+/*
+  Upload script for upload_photos.html
+  - Uses backend for normal listings
+  - Uses Supabase storage when editing a draft (draftId present)
+  - IMPORTANT: adjust import path if your supabaseClient.js lives elsewhere
+*/
+import { supabase } from './supabaseClient.js'; // <-- if this doesn't resolve in browser, replace with '/mnt/data/supabaseClient.js' or relative path your site serves
+
+const LISTING_IMAGES_BUCKET = 'listing_images';
+
+function getDraftId() {
+  const p = new URLSearchParams(location.search);
+  return p.get('draftId') || localStorage.getItem('draftId') || null;
+}
+
+let selectedImages = [];
+let selectedVideo = null;
+
+const imgInput = document.createElement('input');
+imgInput.type = 'file'; imgInput.accept = 'image/*'; imgInput.multiple = true;
+
+const videoInput = document.createElement('input');
+videoInput.type = 'file'; videoInput.accept = 'video/*';
+
+document.querySelectorAll('#uploadPhotoBtn').forEach(b => b.addEventListener('click', () => imgInput.click()));
+document.getElementById('uploadVideoBtn')?.addEventListener('click', () => videoInput.click());
+
+imgInput.onchange = () => {
+  selectedImages = Array.from(imgInput.files).slice(0, 6);
+  alert(selectedImages.length + ' images selected');
+};
+videoInput.onchange = () => {
+  selectedVideo = videoInput.files[0];
+  alert('Video selected: ' + selectedVideo.name);
+};
+
+// STEP 0 → FORCE backend upload by blocking draft mode
+localStorage.removeItem("draftId");   // <-- ADD THIS here
+
+document.querySelector('button.bg-primary a')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  const draftId = getDraftId();
+  const listingId = localStorage.getItem('listingId');
+
+  // This logic remains untouched
+  if (draftId) uploadMediaToSupabase(draftId);
+  else uploadMediaToBackend(listingId);
+});
+
+async function uploadMediaToBackend(listingId) {
+  if (!listingId) return alert('Listing missing. Reload page.');
+
+  const form = new FormData();
+  form.append('listing_id', listingId);
+  selectedImages.forEach((f,i) => form.append(`image${i+1}`, f));
+  if (selectedVideo) form.append('video', selectedVideo);
+
+  try {
+    const res = await fetch('https://democheck-zv5p.onrender.com/upload-media', { method: 'POST', body: form });
+    const json = await res.json();
+    if (json.status === 'success') {
+      window.finalMediaData = json;
+      window.location.href = 'step_1.html';
+    } else alert('Upload error: ' + JSON.stringify(json));
+  } catch (err) { alert('Upload failed: ' + err); }
+}
+
+async function uploadMediaToSupabase(draftId) {
+  // need firebase auth for user check
+  if (!selectedImages.length && !selectedVideo) return window.location.href = `step_1.html?draftId=${draftId}`;
+
+  const user = (window.firebase && firebase.auth && firebase.auth().currentUser) ? firebase.auth().currentUser : null;
+  if (!user) return alert('Please login to upload files for draft');
+
+  // get existing draft.photos
+  const { data: draft } = await supabase.from('drafts').select('photos').eq('id', draftId).single();
+  const photos = Array.isArray(draft?.photos) ? [...draft.photos] : [];
+
+  for (let f of selectedImages) {
+    const ext = f.name.split('.').pop();
+    const filePath = `${draftId}/${Date.now()}_${Math.random().toString(36).slice(2,8)}.${ext}`;
+    const { error } = await supabase.storage.from(LISTING_IMAGES_BUCKET).upload(filePath, f, { upsert: true });
+    if (error) {
+      console.error('Supabase upload error', error);
+      alert('Image upload failed: ' + error.message);
+      continue;
+    }
+    photos.push(filePath);
+  }
+
+  // update draft row
+  const { error: updateErr } = await supabase.from('drafts').update({ photos }).eq('id', draftId);
+  if (updateErr) { console.error(updateErr); return alert('Failed to update draft with photos'); }
+
+  alert('Images uploaded to draft ✔');
+  window.location.href = `step_1.html?draftId=${draftId}`;
+}
+</script>
+
+
+
+ 
+</body>
+
+</html>

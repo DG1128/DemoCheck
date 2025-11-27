@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>RentEasy Help Center</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "primary-soft": "#EFF6FF",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#1F2937",
+                        "text-light-primary": "#1F2937",
+                        "text-light-secondary": "#6B7280",
+                        "text-dark-primary": "#FFFFFF",
+                        "text-dark-secondary": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <!-- TopNavBar -->
+        <header
+            class="sticky top-0 z-50 border-b border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div class="container mx-auto flex items-center justify-between whitespace-nowrap px-4 py-3">
+                <div class="flex items-center gap-4">
+                    <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                    <h2
+                        class="text-lg font-bold tracking-[-0.015em] text-text-light-primary dark:text-text-dark-primary">
+                        Your House</h2>
+                </div>
+                <nav class="hidden items-center gap-9 md:flex">
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="mindex.html">Home</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="mabout.html">About
+                        us</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-primary"
+                        href="mcontact.html">Contact</a>
+                    <a class="text-sm font-medium text-primary dark:text-primary" href="mhelp.html">Help</a>
+                </nav>
+                <div class="flex items-center gap-2">
+                   <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-all">
+                            <span class="truncate"><a href="upload_photos.html">Listing Property</a></span>
+                        </button>
+
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow">
+            <!-- HeroSection -->
+            <section class="container mx-auto px-4 py-16 text-center">
+                <div class="mx-auto max-w-2xl">
+                    <h1
+                        class="text-4xl font-black leading-tight tracking-tight text-text-light-primary dark:text-text-dark-primary sm:text-5xl">
+                        Welcome to the Your House Help Center
+                    </h1>
+                    <p
+                        class="mt-4 text-base font-normal leading-normal text-text-light-secondary dark:text-text-dark-secondary sm:text-lg">
+                        Find answers to your questions about renting, managing properties, and more.
+                    </p>
+                    <div class="mt-8 flex w-full max-w-lg mx-auto">
+                        <label class="sr-only" for="search-help">Search for help</label>
+                        <div class="relative flex w-full items-center">
+                            <span
+                                class="material-symbols-outlined pointer-events-none absolute left-4 text-text-light-secondary dark:text-text-dark-secondary">search</span>
+                            <input
+                                class="h-14 w-full rounded-full border border-border-light dark:border-border-dark bg-background-light dark:bg-gray-800 py-3 pl-12 pr-32 text-base placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary focus:border-primary focus:ring-2 focus:ring-primary/50"
+                                id="search-help" placeholder="Search for help..." type="search" />
+                            <button
+                                class="absolute right-2 flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 min-w-[84px] px-5 bg-primary text-white text-sm font-bold tracking-[0.015em] hover:bg-primary/90">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- TextGrid / Category Cards -->
+            <section class="container mx-auto px-4 py-8">
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-background-light dark:bg-gray-800 p-6 transition-all hover:border-primary/50 hover:shadow-lg dark:hover:bg-border-dark">
+                        <span class="material-symbols-outlined text-primary text-3xl">group</span>
+                        <div class="flex flex-col gap-1">
+                            <h2 class="text-base font-bold leading-tight">For Tenants</h2>
+                            <p
+                                class="text-sm font-normal leading-normal text-text-light-secondary dark:text-text-dark-secondary">
+                                Your rights, leases, and deposit info.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-background-light dark:bg-gray-800 p-6 transition-all hover:border-primary/50 hover:shadow-lg dark:hover:bg-border-dark">
+                        <span class="material-symbols-outlined text-primary text-3xl">house</span>
+                        <div class="flex flex-col gap-1">
+                            <h2 class="text-base font-bold leading-tight">For Landlords</h2>
+                            <p
+                                class="text-sm font-normal leading-normal text-text-light-secondary dark:text-text-dark-secondary">
+                                Responsibilities, screening, and legal guides.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-background-light dark:bg-gray-800 p-6 transition-all hover:border-primary/50 hover:shadow-lg dark:hover:bg-border-dark">
+                        <span class="material-symbols-outlined text-primary text-3xl">build</span>
+                        <div class="flex flex-col gap-1">
+                            <h2 class="text-base font-bold leading-tight">Maintenance Tips</h2>
+                            <p
+                                class="text-sm font-normal leading-normal text-text-light-secondary dark:text-text-dark-secondary">
+                                Practical tips for common household repairs.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-background-light dark:bg-gray-800 p-6 transition-all hover:border-primary/50 hover:shadow-lg dark:hover:bg-border-dark">
+                        <span class="material-symbols-outlined text-primary text-3xl">book</span>
+                        <div class="flex flex-col gap-1">
+                            <h2 class="text-base font-bold leading-tight">Glossary</h2>
+                            <p
+                                class="text-sm font-normal leading-normal text-text-light-secondary dark:text-text-dark-secondary">
+                                Definitions of common rental terminology.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Accordion FAQ Section -->
+            <section class="container mx-auto px-4 py-16">
+                <h2
+                    class="text-center text-3xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
+                    Frequently Asked Questions</h2>
+                <div class="mx-auto mt-8 max-w-3xl space-y-4">
+                    <details
+                        class="group rounded-lg bg-gray-50 dark:bg-gray-800 p-6 [&amp;_summary::-webkit-details-marker]:hidden"
+                        open="">
+                        <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+                            <h3 class="text-base font-semibold">How does Your House verify listings?</h3>
+                            <span class="relative size-5 shrink-0">
+                                <span
+                                    class="material-symbols-outlined absolute inset-0 opacity-100 group-open:opacity-0">add</span>
+                                <span
+                                    class="material-symbols-outlined absolute inset-0 opacity-0 group-open:opacity-100">remove</span>
+                            </span>
+                        </summary>
+                        <p class="mt-4 leading-relaxed text-text-light-secondary dark:text-text-dark-secondary">We have
+                            a multi-step verification process that includes confirming property ownership and checking
+                            for fraudulent activity. We encourage all users to visit properties in person before making
+                            any payments.</p>
+                    </details>
+                    <details
+                        class="group rounded-lg bg-gray-50 dark:bg-gray-800 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+                            <h3 class="text-base font-semibold">What are my responsibilities as a tenant?</h3>
+                            <span class="relative size-5 shrink-0">
+                                <span
+                                    class="material-symbols-outlined absolute inset-0 opacity-100 group-open:opacity-0">add</span>
+                                <span
+                                    class="material-symbols-outlined absolute inset-0 opacity-0 group-open:opacity-100">remove</span>
+                            </span>
+                        </summary>
+                        <p class="mt-4 leading-relaxed text-text-light-secondary dark:text-text-dark-secondary">As a
+                            tenant, you are typically responsible for paying rent on time, keeping the property clean
+                            and undamaged, and adhering to the terms of your lease agreement. Specific responsibilities
+                            may vary by location and lease.</p>
+                    </details>
+                    <details
+                        class="group rounded-lg bg-gray-50 dark:bg-gray-800 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex cursor-pointer items-center justify-between gap-1.5">
+                            <h3 class="text-base font-semibold">How do I handle a maintenance request?</h3>
+                            <span class="relative size-5 shrink-0">
+                                <span
+                                    class="material-symbols-outlined absolute inset-0 opacity-100 group-open:opacity-0">add</span>
+                                <span
+                                    class="material-symbols-outlined absolute inset-0 opacity-0 group-open:opacity-100">remove</span>
+                            </span>
+                        </summary>
+                        <p class="mt-4 leading-relaxed text-text-light-secondary dark:text-text-dark-secondary">You
+                            should submit all maintenance requests through your Your House dashboard. This creates a
+                            documented record for both you and your landlord. For emergencies, please contact your
+                            landlord directly via the provided emergency contact number.</p>
+                    </details>
+                </div>
+            </section>
+            <!-- CTA Block -->
+            <section class="bg-primary-soft dark:bg-border-dark">
+                <div class="container mx-auto px-4 py-16 text-center">
+                    <h2 class="text-3xl font-bold tracking-tight">Still need help?</h2>
+                    <p class="mt-4 max-w-xl mx-auto text-base text-text-light-secondary dark:text-text-dark-secondary">
+                        Our support team is here for you. If you can't find the answer you're looking for, please don't
+                        hesitate to get in touch.</p>
+                    <button
+                        class="mt-8 flex mx-auto min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                       <a href="mcontact.html">Contact Support</a>
+                    </button>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+                    <div class="flex items-center gap-4">
+                         <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                        <h2 class="text-lg font-bold">Your House</h2>
+                    </div>
+                    <nav
+                        class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">
+                        <a class="hover:text-primary" href="mabout.html">About</a>
+                        <a class="hover:text-primary" href="#">Careers</a>
+                        <a class="hover:text-primary" href="#">Press</a>
+                        <a class="hover:text-primary" href="mcontact.html">Contact</a>
+                        <a class="hover:text-primary" href="#">Terms of Service</a>
+                        <a class="hover:text-primary" href="#">Privacy Policy</a>
+                    </nav>
+                    <div class="flex gap-4">
+                        <a aria-label="Facebook"
+                            class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary"
+                            href="https://www.facebook.com/"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg></a>
+                        <a aria-label="Twitter"
+                            class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary"
+                            href="https://x.com"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg></a>
+                        <a aria-label="Instagram"
+                            class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary"
+                            href="https://www.instagram.com/accounts/login/?next=%2Ffacebook%2F&source=omni_redirect&hl=en"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                            </svg></a>
+                    </div>
+                </div>
+                <p class="mt-6 text-center text-sm text-text-light-secondary dark:text-text-dark-secondary">© 2025 Your
+                    House. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

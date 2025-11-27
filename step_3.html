@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Set Price &amp; Availability</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111827] dark:text-gray-200">
+    <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Your House</h2>
+                </div>
+                <div class="hidden md:flex flex-1 items-center justify-center gap-8">
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mindex.html">Home</a>
+
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mabout.html">About us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mcontact.html">Contact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mhelp.html">Help</a>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <main class="flex flex-1 justify-center py-6 md:py-10 lg:py-12">
+                <div class="layout-content-container flex flex-col w-full max-w-4xl px-4 md:px-6">
+                    <!-- ProgressBar -->
+                    <div class="flex flex-col gap-3 p-4 mb-6">
+                        <div class="flex gap-6 justify-between">
+                            <p
+                                class="text-[#111827] dark:text-gray-300 text-sm md:text-base font-medium leading-normal">
+                                Step 3 of 4: Pricing &amp; Availability</p>
+                        </div>
+                        <div class="rounded-full bg-gray-200 dark:bg-gray-700 h-2">
+                            <div class="h-2 rounded-full bg-primary" style="width: 75%;"></div>
+                        </div>
+                        <p class="text-[#6b7280] dark:text-gray-400 text-xs md:text-sm font-normal leading-normal">
+                            Next:
+                            Review &amp; Publish</p>
+                    </div>
+                    <!-- PageHeading -->
+                    <div class="flex flex-wrap justify-between gap-3 p-4 mb-6">
+                        <p
+                            class="text-[#111827] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-tight min-w-72">
+                            Set Your Price &amp; Availability</p>
+                    </div>
+                    <!-- Pricing Section -->
+                    <div
+                        class="flex flex-col border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-background-dark shadow-sm">
+                        <!-- SectionHeader -->
+                        <h2
+                            class="text-[#111827] dark:text-white text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 md:px-6 pb-3 pt-5 border-b border-gray-200 dark:border-gray-700">
+                            How much do you want to charge?</h2>
+                        <div class="p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- SegmentedButtons -->
+                            <div class="flex">
+                                <div
+                                    class="flex h-12 flex-1 items-center justify-center rounded-lg bg-background-light dark:bg-gray-800 p-1">
+
+                                    <label
+                                        class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-white has-[:checked]:dark:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-[#111827] has-[:checked]:dark:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal transition-colors">
+                                        Per Month
+
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- TextField -->
+                            <div class="flex items-end gap-4">
+                                <label class="flex flex-col w-full flex-1 relative">
+
+                                    <div class="relative">
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                                            <span class="text-gray-500 dark:text-gray-400"></span>
+                                        </div>
+                                        <input
+                                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111827] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 pl-8 pr-4 py-2.5 text-base font-normal leading-normal"
+                                            placeholder="Rs." type="number" id="price" />
+                                    </div>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">This is the price
+                                        guests
+                                        will see before taxes and fees.</p>
+                                </label>
+
+
+                            </div>
+                            <label class="flex flex-col min-w-40 flex-1" for="city">
+                                <p
+                                    class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                    City</p>
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-12 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary pl-4 pr-10 text-base font-normal leading-normal"
+                                        id="city" min="0" type="text" placeholder="City" />
+
+                                </div>
+                            </label>
+
+                            <label class="flex flex-col min-w-40 flex-1" for="Area">
+                                <p
+                                    class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                    Area</p>
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-12 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary pl-4 pr-10 text-base font-normal leading-normal"
+                                        id="area" min="0" type="text" placeholder="Area" />
+
+                                </div>
+                            </label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Action Buttons -->
+                        <div class="flex justify-between items-center mt-10 p-4">
+                            <button
+                                class="px-5 py-2.5 rounded-lg text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                                <a href="step_2.html">Back</a>
+                            </button>
+                            <button
+                                class="px-6 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary hover:bg-primary/90 transition-colors">
+                                <a href="step_4.html">Continue</a>
+                            </button>
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<script type="module">
+import { supabase } from './supabaseClient.js'; // correct path
+
+// GET draftId helper
+function getDraftId() {
+  const p = new URLSearchParams(location.search);
+  return p.get('draftId') || localStorage.getItem('draftId') || null;
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+  /* ------------------------------------------------
+     1) If editing a draft → preload values
+  --------------------------------------------------*/
+  const draftId = getDraftId();
+  if (draftId) {
+    localStorage.setItem('draftId', draftId);
+
+    const { data } = await supabase
+      .from('drafts')
+      .select('rent, city, area_name')
+      .eq('id', draftId)
+      .single()
+      .catch(() => ({}));
+
+    if (data) {
+      document.getElementById('price').value = data.rent || '';
+      document.getElementById('city').value = data.city || '';
+      document.getElementById('area').value = data.area_name || '';
+    }
+  }
+
+  /* ------------------------------------------------
+     2) HANDLE "Save & Continue"
+  --------------------------------------------------*/
+  const btn = document.querySelector('button.bg-primary');
+  if (!btn) return;
+
+  btn.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    const listing_id = localStorage.getItem('listingId') || null;
+    const price = document.getElementById('price').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const area = document.getElementById('area').value.trim();
+
+    if (!price || !city || !area)
+      return alert("Please fill all fields.");
+
+    /* --------------------------------------------
+       3) IF → saving into existing draft
+    ----------------------------------------------*/
+    if (draftId) {
+      const { error } = await supabase
+        .from('drafts')
+        .update({
+          rent: price,
+          city,
+          area_name: area,
+          updated_at: new Date()
+        })
+        .eq('id', draftId);
+
+      if (error) return alert("Failed to save step3 into draft");
+
+      // go to step 4 in draft mode
+      window.location.href = `step_4.html?draftId=${draftId}`;
+      return;
+    }
+
+    /* --------------------------------------------
+       4) ELSE → send data to backend API
+    ----------------------------------------------*/
+    if (!listing_id) {
+      return alert("Listing ID missing");
+    }
+
+    try {
+      const res = await fetch("https://tuan-mouilla-trophically.ngrok-free.dev/add-step3", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ listing_id, price, city, area })
+      });
+
+      const json = await res.json();
+
+      if (json.status === "success") {
+        window.location.href = "step_4.html";
+      } else {
+        alert("Step 3 Error: " + JSON.stringify(json));
+      }
+
+    } catch (err) {
+      alert("Network error: " + err);
+    }
+
+  }); // end click event
+
+}); // DOMContentLoaded
+</script>
+
+</body>
+
+</html>

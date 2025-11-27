@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About RentEasy - Making Renting Simple</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- TopNavBar -->
+        <header
+            class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between whitespace-nowrap py-3">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white">Your House</h2>
+                    </div>
+                    <div class="hidden md:flex flex-1 justify-end gap-8">
+                        <div class="flex items-center gap-9">
+                            <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                                href="mindex.html">Home</a>
+                            <a class="text-sm font-bold leading-normal text-primary" href="mabout.html">About us</a>
+                            <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                                href="mcontact.html">Contact</a>
+                            <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                                href="mhelp.html">Help</a>
+                        </div>
+                        <div class="flex gap-2">
+
+                           <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-all">
+                            <span class="truncate"><a href="upload_photos.html">Listing Property</a></span>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow">
+            <!-- HeroSection -->
+            <section class="container mx-auto px-4 py-16 sm:py-24">
+                <div class="@container">
+                    <div class="flex min-h-[480px] flex-col gap-6 items-center justify-center text-center p-8 rounded-xl bg-cover bg-center bg-no-repeat"
+                        data-alt="A bright, modern living room with large windows showing a city skyline, symbolizing a happy rental experience."
+                        style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("mabout.jpg");'>
+                        <div class="flex flex-col gap-4 max-w-3xl">
+                            <h1
+                                class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl lg:text-6xl">
+                                Making Renting Simple, Fair, and Easy for Everyone.
+                            </h1>
+                            <h2 class="text-white/90 text-base font-normal leading-normal md:text-lg">
+                                શરૂઆતથી અંત સુધી એક સીમલેસ અને વિશ્વસનીય ભાડા અનુભવ બનાવવાનું અમારું મિશન શોધ.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Mission and Vision -->
+            <section class="container mx-auto px-4 py-16 sm:py-24 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] dark:text-white">Our Mission &amp;
+                        Vision</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg font-normal leading-normal mt-4">
+                        અમારું ધ્યેય ભાડૂતો અને મકાનમાલિકોને જાણકાર નિર્ણય લેવા માટે જરૂરી સાધનો અને પારદર્શિતા સાથે
+                        સશક્ત બનાવવાનું છે. અમે એવી દુનિયાની કલ્પના કરીએ છીએ કે ઘર શોધવું એ તણાવ નહીં પણ ઉત્સાહનો ક્ષણ
+                        હોય.
+                    </p>
+                </div>
+            </section>
+            <!-- FeatureSection - Core Values -->
+            <section class="bg-white dark:bg-background-dark py-16 sm:py-24">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col gap-10 @container">
+                        <div class="text-center max-w-3xl mx-auto">
+                            <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] dark:text-white">Our Core
+                                Values</h2>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg font-normal leading-normal mt-4">
+                                These are the principles that guide our company, our product, and our team every single
+                                day.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-0">
+                            <div
+                                class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-800/50 p-6 flex-col items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">visibility</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-xl font-bold leading-tight dark:text-white">Transparency</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+                                        We believe in clear, honest communication. No hidden fees, no confusing
+                                        terms—just straightforward renting.
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-800/50 p-6 flex-col items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">groups</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-xl font-bold leading-tight dark:text-white">User-Focused Design</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+                                        Every feature we build is designed with you in mind, making the rental process
+                                        intuitive and hassle-free.
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-800/50 p-6 flex-col items-center text-center">
+                                <span class="material-symbols-outlined text-primary text-4xl">lightbulb</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-xl font-bold leading-tight dark:text-white">Innovation</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+                                        We are constantly exploring new technologies to make renting smarter, safer, and
+                                        more efficient for everyone involved.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- What Makes Us Different -->
+            <section class="container mx-auto px-4 py-16 sm:py-24">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img class="rounded-xl object-cover w-full h-full"
+                            data-alt="A person smiling while using a laptop, representing the ease of using RentEasy's platform."
+                            src="mteam.png" />
+                    </div>
+                    <div class="md:w-1/2 flex flex-col gap-4">
+                        <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] dark:text-white">The Your House
+                            Story</h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">
+                            <b> Founded by a group of frustrated renters and landlords, RentEasy was born from a simple
+                                idea: renting shouldn't be so hard. We experienced firsthand the pain of endless
+                                paperwork,
+                                surprise fees, and a lack of trust in the process. We knew there had to be a better
+                                way.</b>
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">
+                            <b> Our platform was built from the ground up to address these challenges. By focusing on a
+                                clean interface, clear communication channels, and secure digital tools, we're building
+                                a
+                                rental ecosystem where everyone wins. We're passionate about leveraging technology to
+                                create
+                                a rental market that is fair, efficient, and enjoyable for all.</b>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- Testimonials -->
+            <section class="bg-white dark:bg-background-dark py-16 sm:py-24">
+                <div class="container mx-auto px-4">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] dark:text-white">Hear From Our
+                            Users</h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg font-normal leading-normal mt-4">
+                            Don't just take our word for it. See what our community has to say about their experience
+                            with Your House
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                        <div class="bg-background-light dark:bg-gray-800/50 p-6 rounded-xl flex flex-col gap-4">
+                            <p class="text-gray-700 dark:text-gray-300"><b>"Your House made finding my new apartment a
+                                    breeze. The listings are verified, and the direct messaging with landlords saved me
+                                    so
+                                    much time. Highly recommend!"</b></p>
+                            <div
+                                class="flex items-center gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                                <img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of Sarah J."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFodZwKfKxGQcomgzdf5bK_qI8ghCNb2DZIOMrELUCHi6QX8rGqgmvz0C4dXGKzOH2kbCeHvgvrLryhwalATcWQoeS-aUmvGEAZm07tes_XPLEmjl0w-oyxFX6fuGIJzasUxC9zjZqtcIgeInKq3svt0JMLSx20WgQ9965-Uc1cXJ7F7c-NWW5F5DQRzlOEFz-JxYO3m2NQd3YH6JxzTYrC4GD99K4OxGQ8_5H-IwrNTtasJSNYnt8WfpYrlqcUhtHsdI3iXvlB3I" />
+                                <div>
+                                    <p class="font-bold text-sm dark:text-white">Chandni Patel</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Happy Renter</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-background-light dark:bg-gray-800/50 p-6 rounded-xl flex flex-col gap-4">
+                            <p class="text-gray-700 dark:text-gray-300">"As a landlord, managing applications was always
+                                a headache. Your House's platform is incredibly intuitive and keeps everything organized
+                                in one place."</p>
+                            <div
+                                class="flex items-center gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                                <img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of Michael B."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM41N9FMABNwKApdYTO-1prXVGXVjGtq2HKQUzFrneZYRUBGOj7MKrZ86ndpC-Gi0yicDdiUM2NzytHSu8L8JE1gBMsFMbsjiHsnPzSTwKWhLKmLmZFS9QagjcXyjHerBrOUaSIpzFVFSRPfjMLbmZOX4BZH0ntbbEH8XBQaYDnjWuML-ofKwQuF0t2t6x7zoBN8ItvD3TNHgEBKUXq6wznevTAECBvUCOR1UPQLtUy26GHZbW1Br6hlpZXueMGx73xhpNV3N1Tc0" />
+                                <div>
+                                    <p class="font-bold text-sm dark:text-white">GT</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Landlord</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-background-light dark:bg-gray-800/50 p-6 rounded-xl flex flex-col gap-4">
+                            <p class="text-gray-700 dark:text-gray-300">"The transparency is what I love most. No hidden
+                                fees, clear communication, and a process I can actually trust. It's a game-changer for
+                                the rental market."</p>
+                            <div
+                                class="flex items-center gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                                <img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of Emily K."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnRZk9GWUhvAQs8Ryf7O7GmnsvNKKwysjPKREjbhV6HtNo712MDtLC1ZgiIEFPSCBwC0nZ6tFVIrl7NFwBCDj0zhGn3dH3aiRyGQ7vhDejB-os3YohCncgljUKIfkXVEftbQGdjqFmaFowafSm3fTL_GfNKb-sV4sa-R_NubojvxLVFYMGpLjVCtM6yu58ErClA_4LVnA2S_H7Ski-CluTw6cz5QMWPwIEy-FsTP6O6qvhWbytYHDyZdwAHZX6YnQYu0-8Vr2LCoY" />
+                                <div>
+                                    <p class="font-bold text-sm dark:text-white">Rin</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">First-time Renter</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- CTA Section -->
+            <section class="container mx-auto px-4 py-16 sm:py-24">
+                <div class="bg-primary/10 dark:bg-primary/20 rounded-xl p-10 text-center">
+                    <div class="max-w-2xl mx-auto flex flex-col items-center gap-4">
+                        <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] dark:text-white">Ready to Find
+                            Your Home?</h2>
+                        <p class="text-gray-600 dark:text-gray-300 text-lg font-normal leading-normal">
+                            Join thousands of happy renters and landlords on the platform designed to make renting
+                            better for everyone.
+                        </p>
+                        <button
+                            class="flex mt-4 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                            <span class="truncate"><a href="listing.html">Browse Listings</a></span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                        <h2 class="text-lg font-bold">Your House</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">© 2025 Your House. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

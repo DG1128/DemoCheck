@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>List your property - RentEasy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "text-light-primary": "#1F2937",
+                        "text-light-secondary": "#6B7280",
+                        "text-dark-primary": "#F9FAFB",
+                        "text-dark-secondary": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary">
+    <div class="relative flex min-h-screen w-full flex-col">
+       <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Your House</h2>
+                </div>
+                <div class="hidden md:flex flex-1 items-center justify-center gap-8">
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mindex.html">Home</a>
+
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mabout.html">About us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mcontact.html">Contact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mhelp.html">Help</a>
+                </div>
+
+            </nav>
+        </div>
+        <main class="flex-1 w-full">
+            <div class="container mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
+                <div class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-3 px-4">
+                        <div class="flex gap-6 justify-between items-center">
+                            <p
+                                class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal">
+                                Step 1 of 4: Basic Details</p>
+                        </div>
+                        <div class="rounded-full bg-gray-200 dark:bg-gray-700 h-2">
+                            <div class="h-2 rounded-full bg-primary" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <div class="flex flex-col gap-2">
+                            <h1
+                                class="text-text-light-primary dark:text-text-dark-primary text-4xl font-black leading-tight tracking-[-0.033em]">
+                                Let's start with the basics</h1>
+                            <p
+                                class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal">
+                                Tell us about your property. This information will help renters find your listing.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-border-light dark:border-border-dark p-6 sm:p-8">
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div class="md:col-span-2">
+                                <label class="flex flex-col min-w-40 flex-1" for="property-title">
+                                    <p
+                                        class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                        Property Title</p>
+                                    <input
+                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-12 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary px-4 text-base font-normal leading-normal"
+                                        id="property-title" placeholder="e.g., Cozy Downtown Apartment with a View"
+                                        type="text" value="" name="property_title"/>
+                                </label>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="flex flex-col min-w-40 flex-1" for="property-description">
+                                    <p
+                                        class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                        Description</p>
+                                    <textarea
+                                        class="form-input flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark min-h-36 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary p-4 text-base font-normal leading-normal"
+                                        id="property-description" name="description"
+                                        placeholder="Share what makes your place special..."></textarea>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="flex flex-col min-w-40 flex-1" for="property-type">
+                                    <p
+                                        class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                        Property Type</p>
+                                    <div class="relative">
+                                        <select name="property_type"
+                                            class="form-select appearance-none w-full cursor-pointer rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-12 px-4 text-base font-normal leading-normal"
+                                            id="property-type">
+                                            <option>Apartment</option>
+                                            <option>House</option>
+                                            <option>Villa</option>
+                                            <option>Condo</option>
+                                            <option>Townhouse</option>
+                                        </select>
+                                        <span
+                                            class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-text-light-secondary dark:text-text-dark-secondary pointer-events-none">expand_more</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="flex flex-col min-w-40 flex-1" for="bedrooms">
+                                        <p
+                                            class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                            Bedrooms</p>
+                                        <div class="relative flex items-center">
+                                            <input name="bedrooms"
+                                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-12 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary pl-4 pr-10 text-base font-normal leading-normal"
+                                                id="bedrooms" min="0" type="number" value="2" />
+                                            <span
+                                                class="material-symbols-outlined absolute right-3 text-text-light-secondary dark:text-text-dark-secondary pointer-events-none">bed</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="flex flex-col min-w-40 flex-1" for="bathrooms">
+                                        <p
+                                            class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                            Bathrooms</p>
+                                        <div class="relative flex items-center">
+                                            <input name="bathrooms"
+                                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-12 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary pl-4 pr-10 text-base font-normal leading-normal"
+                                                id="bathrooms" min="0" step="0.5" type="number" value="1.5" />
+                                            <span
+                                                class="material-symbols-outlined absolute right-3 text-text-light-secondary dark:text-text-dark-secondary pointer-events-none">bathtub</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="flex flex-col min-w-40 flex-1" for="total-area">
+                                    <p
+                                        class="text-text-light-primary dark:text-text-dark-primary text-base font-medium leading-normal pb-2">
+                                        Total Area</p>
+                                    <div class="relative">
+                                        <input name="total_area"
+                                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-12 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary pl-4 pr-16 text-base font-normal leading-normal"
+                                            id="total-area" placeholder="e.g. 1200" type="number" value="" />
+                                        <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                            <span
+                                                class="text-text-light-secondary dark:text-text-dark-secondary text-base">sq
+                                                ft</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="flex justify-between items-center px-4 mt-4">
+                        <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-transparent text-text-light-secondary dark:text-text-dark-secondary text-base font-semibold leading-normal tracking-[0.015em] hover:bg-gray-100 dark:hover:bg-gray-800">
+                            <span class="truncate"><a href="upload_photos.html"> Back</a></span>
+                        </button>
+                        <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-semibold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                            <a id="continueBtn">Save & Continue</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<script type="module">
+import { supabase } from './supabaseClient.js';
+
+function getDraftId() {
+  const p = new URLSearchParams(location.search);
+  return p.get('draftId') || localStorage.getItem('draftId') || null;
+}
+
+/* ------------------------------
+   CREATE LISTING (Normal Mode)
+--------------------------------*/
+async function createNewListingOnBackend() {
+  try {
+    const res = await fetch('https://tuan-mouilla-trophically.ngrok-free.dev/add-step1');
+    const data = await res.json();
+    if (data.status === 'success') {
+      localStorage.setItem('listingId', data.listing_id);
+      return true;
+    }
+    return false;
+  } catch (e) {
+    console.error('Create listing failed:', e);
+    return false;
+  }
+}
+
+/* ------------------------------
+   SAVE STEP-1 TO BACKEND
+--------------------------------*/
+async function saveStep1ToBackend(payload) {
+  try {
+    const res = await fetch('https://democheck-zv5p.onrender.com/save-step1', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    return await res.json();
+  } catch (e) {
+    throw e;
+  }
+}
+
+/* ------------------------------
+   SAVE STEP-1 TO DRAFT
+--------------------------------*/
+async function saveStep1ToDraft(draftId, payload) {
+  const updates = {
+    title: payload.property_title || null,
+    description: payload.description || null,
+    property_type: payload.property_type || null,
+    bedrooms: payload.bedrooms || null,
+    bathrooms: payload.bathrooms || null,
+    area_sqft: payload.total_area || null,
+    updated_at: new Date()
+  };
+  const { error } = await supabase.from('drafts').update(updates).eq('id', draftId);
+  if (error) throw error;
+}
+
+/* ------------------------------
+   PAGE INIT
+--------------------------------*/
+document.addEventListener('DOMContentLoaded', async () => {
+
+  const draftId = getDraftId();
+
+  if (!draftId) {
+    if (!localStorage.getItem('listingId')) {
+      await createNewListingOnBackend();
+    }
+  } else {
+    localStorage.setItem('draftId', draftId);
+
+    const { data } = await supabase
+      .from('drafts')
+      .select('*')
+      .eq('id', draftId)
+      .single()
+      .catch(() => ({}));
+
+    if (data) {
+      document.getElementById('property-title').value = data.title || '';
+      document.getElementById('property-description').value = data.description || '';
+      document.getElementById('property-type').value = data.property_type || '';
+      document.getElementById('bedrooms').value = data.bedrooms || '';
+      document.getElementById('bathrooms').value = data.bathrooms || '';
+      document.getElementById('total-area').value = data.area_sqft || '';
+    }
+  }
+
+  /* ------------------------------
+     SAVE BUTTON CLICK
+  ------------------------------*/
+  document.getElementById('continueBtn')?.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      listing_id: localStorage.getItem('listingId') || null,
+      property_title: document.getElementById('property-title').value.trim(),
+      description: document.getElementById('property-description').value.trim(),
+      property_type: document.getElementById('property-type').value,
+      bedrooms: document.getElementById('bedrooms').value,
+      bathrooms: document.getElementById('bathrooms').value,
+      total_area: document.getElementById('total-area').value
+    };
+
+    const draftIdNow = getDraftId();
+
+    // DRAFT MODE
+    if (draftIdNow) {
+      try {
+        await saveStep1ToDraft(draftIdNow, payload);
+        window.location.href = `step_2.html?draftId=${draftIdNow}`;
+      } catch (err) {
+        alert('Failed to save step1 to draft');
+      }
+      return;
+    }
+
+    // NORMAL MODE
+    try {
+      const json = await saveStep1ToBackend(payload);
+      if (json.status === 'success') {
+        window.location.href = 'step_2.html';
+      } else {
+        alert('Step 1 Error: ' + JSON.stringify(json));
+      }
+    } catch (err) {
+      alert('Network error: ' + err);
+    }
+  });
+
+});
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

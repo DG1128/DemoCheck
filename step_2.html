@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>RentEasy - Amenities &amp; Features</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "secondary-light": "#F3F4F6",
+                        "secondary-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F3F4F6",
+                        "subtle-light": "#6B7280",
+                        "subtle-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <!-- TopNavBar -->
+       <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Your House</h2>
+                </div>
+                <div class="hidden md:flex flex-1 items-center justify-center gap-8">
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mindex.html">Home</a>
+
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mabout.html">About us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mcontact.html">Contact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="mhelp.html">Help</a>
+                </div>
+
+            </nav>
+        </div>
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <div class="container mx-auto max-w-4xl px-4 py-8 sm:py-12">
+                <!-- ProgressBar -->
+                <div class="flex flex-col gap-2 mb-8">
+                    <p class="text-sm font-medium">Step 2 of 4: Amenities</p>
+                    <div class="h-1.5 w-full rounded-full bg-secondary-light dark:bg-secondary-dark">
+                        <div class="h-1.5 rounded-full bg-primary" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <!-- PageHeading -->
+                <div class="flex flex-wrap justify-between gap-3 mb-8">
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Amenities &amp; Features</h1>
+                        <p class="text-subtle-light dark:text-subtle-dark">Select all the amenities your place offers
+                            and highlight what makes it special.</p>
+                    </div>
+                </div>
+                <!-- SearchBar -->
+                <div class="mb-8">
+                    <label class="flex flex-col min-w-40 h-12 w-full">
+                        <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                            <div
+                                class="flex items-center justify-center pl-4 rounded-l-xl bg-secondary-light dark:bg-secondary-dark text-subtle-light dark:text-subtle-dark">
+                                <span class="material-symbols-outlined">search</span>
+                            </div>
+                            <input
+                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl border-none bg-secondary-light dark:bg-secondary-dark focus:ring-2 focus:ring-primary focus:ring-inset h-full placeholder:text-subtle-light dark:placeholder:text-subtle-dark pl-2 text-base"
+                                placeholder="Search amenities" value="" />
+                        </div>
+                    </label>
+                </div>
+                <!-- Amenity Sections -->
+                <div class="space-y-10">
+                    <!-- Essentials Section -->
+                    <div>
+                        <h2 class="text-xl font-bold tracking-tight mb-4">Essentials</h2>
+                        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="wifi"/>
+                                <span class="material-symbols-outlined" >wifi</span>
+                                <span class="font-medium">Wi-Fi</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="tv" />
+                                <span class="material-symbols-outlined">tv</span>
+                                <span class="font-medium">TV</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="ac" />
+                                <span class="material-symbols-outlined">ac_unit</span>
+                                <span class="font-medium">AC</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="heating" />
+                                <span class="material-symbols-outlined">thermostat</span>
+                                <span class="font-medium">Heating</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="washer"/>
+                                <span class="material-symbols-outlined">local_laundry_service</span>
+                                <span class="font-medium">Washer</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="dryer" />
+                                <span class="material-symbols-outlined">dry</span>
+                                <span class="font-medium">Dryer</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Kitchen Section -->
+                    <div>
+                        <h2 class="text-xl font-bold tracking-tight mb-4">Kitchen</h2>
+                        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="refrigerator"/>
+                                <span class="material-symbols-outlined">kitchen</span>
+                                <span class="font-medium">Refrigerator</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="stove" />
+                                <span class="material-symbols-outlined">countertops</span>
+                                <span class="font-medium">Stove</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="microwave" />
+                                <span class="material-symbols-outlined">microwave</span>
+                                <span class="font-medium">Microwave</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="coffee_maker"/>
+                                <span class="material-symbols-outlined">coffee_maker</span>
+                                <span class="font-medium">Coffee Maker</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="dishwasher" />
+                                <span class="material-symbols-outlined">dishwasher</span>
+                                <span class="font-medium">Dishwasher</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Safety Section -->
+                    <div>
+                        <h2 class="text-xl font-bold tracking-tight mb-4">Safety Items</h2>
+                        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="smoke_alarm" />
+                                <span class="material-symbols-outlined">smoke_free</span>
+                                <span class="font-medium">Smoke Alarm</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="co_alarm" />
+                                <span class="material-symbols-outlined">co2</span>
+                                <span class="font-medium">CO Alarm</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="first_aid" />
+                                <span class="material-symbols-outlined">medical_services</span>
+                                <span class="font-medium">First Aid Kit</span>
+                            </label>
+                            <label
+                                class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-secondary-light dark:border-secondary-dark p-4 has-[:checked]:border-primary has-[:checked]:bg-primary/10 transition-colors">
+                                <input class="form-checkbox rounded-md border-gray-400 text-primary focus:ring-primary"
+                                    type="checkbox" name="fire_extinguisher" />
+                                <span class="material-symbols-outlined">fire_extinguisher</span>
+                                <span class="font-medium">Fire Extinguisher</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Unique Features Section -->
+                    <div class="space-y-4">
+                        <h2 class="text-xl font-bold tracking-tight">Standout features</h2>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="unique-features">Unique Features</label>
+                            <textarea
+                                class="form-textarea w-full rounded-xl border-secondary-light dark:border-secondary-dark bg-secondary-light dark:bg-secondary-dark focus:ring-primary focus:border-primary"
+                                id="unique-features"
+                                placeholder="Describe what makes your property unique. Is there a great view, a cozy fireplace, or a special workspace?"
+                                rows="4"></textarea>
+                            <p class="text-xs text-subtle-light dark:text-subtle-dark text-right mt-1">0/500</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="special-notes">Special Notes</label>
+                            <textarea
+                                class="form-textarea w-full rounded-xl border-secondary-light dark:border-secondary-dark bg-secondary-light dark:bg-secondary-dark focus:ring-primary focus:border-primary"
+                                id="special-notes"
+                                placeholder="Any other details guests should know? (e.g., 'Shared laundry facilities', 'Stairs required for access')."
+                                rows="3"></textarea>
+                            <p class="text-xs text-subtle-light dark:text-subtle-dark text-right mt-1">0/250</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Navigation Buttons -->
+        <footer
+            class=" bottom-0 w-full border-t border-secondary-light dark:border-secondary-dark bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm">
+            <div class="container mx-auto max-w-4xl p-4">
+                <div class="flex justify-between items-center">
+                    <button class="font-bold underline underline-offset-2"><a href="step_1.html">Back</a></button>
+                    <button
+                        class="flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold transition-colors hover:bg-primary/90">
+                        <a onclick="saveStep2ToBackend(collectAmenitiesFromForm())" href="step_3.html">Continue</a>
+
+
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+<script type="module">
+import { supabase } from "./supabaseClient.js";
+
+/* -------------------------------------------------
+    HELPERS
+---------------------------------------------------- */
+function getDraftId() {
+  const p = new URLSearchParams(location.search);
+  return p.get("draftId") || localStorage.getItem("draftId") || null;
+}
+
+// Convert checkboxes → INTEGER (0/1)
+function collectAmenitiesFromForm() {
+  const keys = [
+    "wifi",
+    "tv",
+    "ac",
+    "heating",
+    "washer",
+    "dryer",
+    "refrigerator",
+    "stove",
+    "microwave",
+    "coffee_maker",
+    "dishwasher",
+    "smoke_alarm",
+    "co_alarm",
+    "first_aid",
+    "fire_extinguisher",
+  ];
+  const obj = {};
+
+  keys.forEach((k) => {
+    const el = document.querySelector(`input[name="${k}"]`);
+    obj[k] = el && el.checked ? 1 : 0; // FIX → INTEGER REQUIRED
+  });
+
+  obj.unique_features =
+    document.getElementById("unique-features")?.value.trim() || "";
+  obj.special_notes =
+    document.getElementById("special-notes")?.value.trim() || "";
+
+  return obj;
+}
+
+const BACKEND_URL = "https://tuan-mouilla-trophically.ngrok-free.dev/add-step2"; 
+
+async function saveStep2ToBackend(payload) {
+    const API = `${BACKEND_URL}/add-step2`; // FULL POST URL
+
+    const res = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+    });
+
+    return res.json();
+}
+
+/* -------------------------------------------------
+    MAIN
+---------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", async () => {
+  const draftId = getDraftId();
+
+  /* --------------------------
+      PREFILL (DRAFT MODE)
+  --------------------------- */
+  if (draftId) {
+    localStorage.setItem("draftId", draftId);
+
+    const { data } = await supabase
+      .from("drafts")
+      .select("amenities")
+      .eq("id", draftId)
+      .single()
+      .catch(() => ({}));
+
+    if (data && data.amenities) {
+      const am = data.amenities;
+
+      // Apply 0/1 integer → checkbox
+      for (const k in am) {
+        const el = document.querySelector(`input[name="${k}"]`);
+        if (el) el.checked = am[k] === 1;
+      }
+
+      document.getElementById("unique-features").value =
+        am.unique_features || "";
+      document.getElementById("special-notes").value =
+        am.special_notes || "";
+    }
+  }
+
+  /* --------------------------
+      BUTTON CLICK
+  --------------------------- */
+  document
+    .querySelector("button.bg-primary")
+    ?.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      const listing_id = localStorage.getItem("listingId") || null;
+
+      if (!listing_id && !draftId)
+        return alert("listing_id missing. Start from upload photos.");
+
+      const amenities = collectAmenitiesFromForm();
+
+      /* --------------------------------------
+           SAVE TO DRAFT MODE
+      --------------------------------------- */
+      if (draftId) {
+        const { error } = await supabase
+          .from("drafts")
+          .update({ amenities, updated_at: new Date() })
+          .eq("id", draftId);
+
+        if (error) return alert("Failed to save step2 to draft");
+
+        window.location.href = `step_3.html?draftId=${draftId}`;
+        return;
+      }
+
+      /* --------------------------------------
+           NORMAL BACKEND MODE
+      --------------------------------------- */
+      try {
+        const json = await saveStep2ToBackend({ listing_id, ...amenities });
+
+        if (json.status === "success") {
+          window.location.href = "step_3.html";
+        } else {
+          alert("Step-2 Error: " + JSON.stringify(json));
+        }
+      } catch (err) {
+        alert("Network error: " + err);
+      }
+    });
+});
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

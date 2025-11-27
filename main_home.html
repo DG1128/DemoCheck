@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Property</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        /* ---------- Root / Theme ---------- */
+        :root {
+            --primary: #2b8cee;
+            --bg-light: #f6f7f8;
+            --bg-dark: #101922;
+            --text: #1F2937;
+            --muted: #6B7280;
+            --muted-2: #E5E7EB;
+            --rounded: 8px;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        /* Dark mode support with .dark on html */
+        html.dark body {
+            background: var(--bg-dark);
+            color: #e6eef6;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-light);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            font-size: 16px;
+            line-height: 1.35;
+        }
+
+        .layout-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ---------- Header ---------- */
+        header.site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            border-bottom: 1px solid var(--muted-2);
+            padding: 12px 24px;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+        }
+
+        .brand svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .brand h2 {
+            margin: 0;
+            font-size: 18px;
+            color: var(--text);
+            font-weight: 800;
+        }
+
+        /* center search (hidden on small screens) */
+        .search-center {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 0 16px;
+        }
+
+        .search-box {
+            max-width: 520px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            color: var(--muted);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: 0;
+            outline: 0;
+            padding: 10px 12px;
+            background: transparent;
+            font-size: 16px;
+            color: inherit;
+        }
+
+        /* header actions */
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 84px;
+            height: 40px;
+            padding: 0 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 0;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-ghost {
+            background: #E5E7EB;
+            color: var(--text);
+        }
+
+        /* ---------- Main ---------- */
+        main {
+            padding: 32px 24px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .results-title {
+            font-size: 28px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .results-sub {
+            margin: 6px 0 0 0;
+            color: var(--muted);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: #E5E7EB;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-family: 'Material Symbols Outlined';
+        }
+
+        /* Grid layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media(min-width:1024px) {
+            .grid {
+                grid-template-columns: 320px 1fr;
+            }
+        }
+
+        /* Sidebar */
+        aside.sidebar {
+            position: relative;
+        }
+
+        .sidebar .panel {
+            position: sticky;
+            top: 96px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--muted-2);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .panel h3 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+        }
+
+        .checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-list label {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-list input[type=checkbox] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .panel .actions {
+            margin-top: 16px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .panel .actions .btn {
+            width: 100%;
+        }
+
+        /* Listings area */
+        .listings {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        @media(min-width:768px) {
+            .listings {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(min-width:1280px) {
+            .listings {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--muted-2);
+            box-shadow: 0 1px 6px rgba(2, 6, 23, 0.03);
+            transition: box-shadow .25s, transform .25s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card .card-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .card h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .card .location {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .price {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 18px;
+            margin-top: 6px;
+        }
+
+        .card .card-footer {
+            margin-top: auto;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(43, 140, 238, 0.16);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Utilities */
+        .flex {
+            display: flex;
+        }
+
+        .gap-2 {
+            gap: 8px;
+        }
+
+        /* Responsive small-screen adjustments */
+        @media(max-width:767px) {
+            .search-center {
+                display: none;
+            }
+
+            header.site-header {
+                padding: 10px;
+            }
+
+            .results-title {
+                font-size: 22px;
+            }
+
+            main {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-container">
+        <header class="site-header">
+            <div class="brand">
+                <div aria-hidden>
+                    <span class="text-2xl"><a href="mindex.html"><img src="mlogo.png" width="90vw"></a></span>
+                </div>
+                <h2>Your House</h2>
+            </div>
+
+            <div class="search-center">
+                <label class="search-box">
+                    <div class="search-icon"><span class="material-symbols-outlined">search</span></div>
+                    <input id="searchBar" type="text" placeholder="Search for a city..." value="" />
+                </label>
+            </div>
+
+            <div class="header-actions">
+                <a href="user.html"><button class="btn btn-primary">ProFile</button></a>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="results-header">
+                    <div>
+                        <p class="results-title">Showing results for Vasad</p>
+                        <p class="results-sub">Explore a wide range of properties available for rent in your selected
+                            area.</p>
+                    </div>
+                    <button class="back-btn" ><span class="material-symbols-outlined">arrow_back</span><span><a href="mindex.html">Back to
+                            Home</a></span></button>
+                </div>
+
+                <div class="grid">
+                    <!-- Sidebar -->
+                    <aside class="sidebar">
+                        <div class="panel">
+                            <h3>Filter by Price</h3>
+                            <div class="checkbox-list">
+                                <label><input type="checkbox" /> <span>₹0 – ₹1500</span></label>
+                                <label><input type="checkbox" /> <span>₹1500 – ₹2500</span></label>
+                                <label><input type="checkbox" /><span>₹2500 – ₹3500</span></label>
+                                <label><input type="checkbox" /><span>₹5000+</span></label>
+                            </div>
+
+                            <div class="actions">
+                                <button class="btn btn-primary">Apply Filters</button>
+                                <button class="btn btn-ghost">Clear Filters</button>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Listings -->
+                    <section>
+                        <div class="listings">
+                            <!-- Card 1 -->
+                            <article class="card">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQTd_CsCLf_YFX9P7GaB4yf7hIYjuF_fbg43nIY-e_MyiNw8yv-UJdx7OP7Pd2bmDSZ6e7AUZJ_vOVvbtgboX7uQ9fKxqSvOqHPrrUdoO7Znto9eCPAQa_qr-X38aDBI1UAAfMXwGp3nRx2ksNB11Uq9RAy-dVXH_J-rJxYUakz0TwyXKHUM6E8McLcH-ak6VRTPo6P1qDIro5fpVss9v-k_0J_d1yLbgPPyyYK3dlTllh0a2aSLIc2NGy6iG3qz03CKKD8EiUhqA"
+                                    alt="Modern suburban house" />
+                                <div class="card-body">
+                                    <h4>Spacious 3BHK Villa</h4>
+                                    <p class="location"><span
+                                            class="material-symbols-outlined">location_on</span><span>Anand,
+                                            Gujarat</span></p>
+                                    <p class="price">₹18,000 / month</p>
+                                    <div class="card-footer"><button class="btn-outline">View Details</button></a></div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </main>
+    </div>
+<script>
+// --- CONFIG: Live URLs ---
+const RENDER_API_URL = "https://democheck-zv5p.onrender.com";
+const SUPABASE_BASE_URL = "https://wajkisiwqfqoihleibtl.supabase.co/storage/v1/object/public/listing_images/";
+
+// ================= LOAD LISTINGS (KEEP DEFAULT CARD) =================
+document.addEventListener("DOMContentLoaded", loadListings);
+
+async function loadListings() {
+    try {
+        // FIXED: API URL changed to RENDER URL
+        const res = await fetch(`${RENDER_API_URL}/get-all-listings`);
+        const json = await res.json();
+
+        if (!json || !json.data) {
+            console.error("No listings found");
+            return;
+        }
+
+        const container = document.querySelector(".listings");
+
+        // ❗ REMOVE ONLY DYNAMIC CARDS — KEEP DEFAULT STATIC CARD
+        container.querySelectorAll(".dynamic-card").forEach(e => e.remove());
+
+        json.data.forEach(item => {
+            // FIXED: Image URL changed to SUPABASE STORAGE URL
+            const img = item.image1
+                ? SUPABASE_BASE_URL + item.image1
+                : "https://via.placeholder.com/400";
+
+            const card = document.createElement("article");
+            card.classList.add("card", "dynamic-card");
+
+            card.innerHTML = `
+                <img src="${img}" alt="Property Image" />
+                <div class="card-body">
+                    <h4>${item.property_title || "Untitled Property"}</h4>
+
+                    <p class="location">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <span>${item.city || ""}, ${item.area || ""}</span>
+                    </p>
+
+                    <p class="price">₹${item.price || 0} / month</p>
+
+                    <div class="card-footer">
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+            `;
+
+            card.addEventListener("click", () => {
+                localStorage.setItem("selectedListingId", item.listing_id);
+                window.location.href = "view_listing.html";
+            });
+
+            container.appendChild(card);
+        });
+
+    } catch (err) {
+        console.error("Error loading listings:", err);
+    }
+}
+
+
+// ================= SEARCH FUNCTION =================
+const searchBar = document.getElementById("searchBar");
+let searchTimer = null;
+
+searchBar.addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+        const text = searchBar.value.trim();
+        if (text === "") {
+            loadListings(); // reload full data
+        } else {
+            searchListings(text);
+        }
+    }, 300);
+});
+
+async function searchListings(q) {
+    try {
+        // FIXED: API URL changed to RENDER URL
+        const res = await fetch(`${RENDER_API_URL}/search?q=${encodeURIComponent(q)}`);
+        const json = await res.json();
+
+        const container = document.querySelector(".listings");
+
+        // ❗ REMOVE ONLY DYNAMIC CARDS — KEEP DEFAULT STATIC CARD
+        container.querySelectorAll(".dynamic-card").forEach(e => e.remove());
+
+        if (!json.data || json.data.length === 0) {
+            return; // default card stays visible
+        }
+
+        json.data.forEach(item => {
+            // FIXED: Image URL changed to SUPABASE STORAGE URL
+            const img = item.image1
+                ? SUPABASE_BASE_URL + item.image1
+                : "https://via.placeholder.com/400";
+
+            const card = document.createElement("article");
+            card.classList.add("card", "dynamic-card");
+
+            card.innerHTML = `
+                <img src="${img}" alt="Property Image" />
+                <div class="card-body">
+                    <h4>${item.property_title}</h4>
+
+                    <p class="location">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <span>${item.city}, ${item.area}</span>
+                    </p>
+
+                    <p class="price">₹${item.price} / month</p>
+
+                    <div class="card-footer">
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+            `;
+
+            card.addEventListener("click", () => {
+                localStorage.setItem("selectedListingId", item.listing_id);
+                window.location.href = "view_listing.html";
+            });
+
+            container.appendChild(card);
+        });
+
+    } catch (err) {
+        console.error("Search error:", err);
+    }
+}
+
+
+// ================= PRICE FILTERS =================
+
+// Your existing checkboxes
+const priceFilters = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+const applyBtn = document.querySelector(".panel .actions .btn.btn-primary");
+const clearBtn = document.querySelector(".panel .actions .btn.btn-ghost");
+
+// Apply Filters Button
+applyBtn.addEventListener("click", () => {
+    const selected = [];
+
+    priceFilters.forEach((box, index) => {
+        if (box.checked) {
+            if (index === 0) selected.push({ min: 0, max: 1500 });
+            if (index === 1) selected.push({ min: 1500, max: 2500 });
+            if (index === 2) selected.push({ min: 2500, max: 3500 });
+            if (index === 3) selected.push({ min: 5000, max: 9999999 });
+        }
+    });
+
+    // No filters → load all
+    if (selected.length === 0) {
+        loadListings(); // reload all
+        return;
+    }
+
+    applyPriceFilters(selected);
+});
+
+// Clear Filters
+clearBtn.addEventListener("click", () => {
+    priceFilters.forEach(box => box.checked = false);
+    loadListings(); // reload all
+});
+
+// Filter Function
+async function applyPriceFilters(ranges) {
+    try {
+        // FIXED: API URL changed to RENDER URL
+        const res = await fetch(`${RENDER_API_URL}/get-all-listings`);
+        const json = await res.json();
+
+        const container = document.querySelector(".listings");
+
+        // Remove dynamic cards
+        container.querySelectorAll(".dynamic-card").forEach(e => e.remove());
+
+        const filtered = json.data.filter(item => {
+            let price = Number(item.price);
+            return ranges.some(r => price >= r.min && price <= r.max);
+        });
+
+        if (filtered.length === 0) {
+            return; // keep default card visible
+        }
+
+        filtered.forEach(item => {
+            // FIXED: Image URL changed to SUPABASE STORAGE URL
+            const img = item.image1
+                ? SUPABASE_BASE_URL + item.image1
+                : "https://via.placeholder.com/400";
+
+            const card = document.createElement("article");
+            card.classList.add("card", "dynamic-card");
+
+            card.innerHTML = `
+                <img src="${img}" alt="">
+                <div class="card-body">
+                    <h4>${item.property_title}</h4>
+
+                    <p class="location">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <span>${item.city}, ${item.area}</span>
+                    </p>
+
+                    <p class="price">₹${item.price} / month</p>
+
+                    <div class="card-footer">
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+            `;
+
+            card.addEventListener("click", () => {
+                localStorage.setItem("selectedListingId", item.listing_id);
+                window.location.href = "view_listing.html";
+            });
+
+            container.appendChild(card);
+        });
+
+    } catch (err) {
+        console.error("Filter error:", err);
+    }
+}
+</script>
+</body>
+</html>

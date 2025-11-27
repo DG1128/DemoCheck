@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Email</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md text-center">
+        <h1 class="text-2xl font-bold text-gray-800">Verify Your Email</h1>
+        <p id="emailText" class="text-gray-600 mt-3">A verification link has been sent to your email.</p>
+
+        <button id="resendBtn" class="w-full bg-primary text-white py-3 mt-6 rounded-lg font-semibold hover:bg-teal-500">Resend Verification Email</button>
+
+        <p class="text-sm text-gray-500 mt-4">After verifying, this page will redirect you automatically to the sign in page.</p>
+
+        <div id="statusBox" class="hidden mt-4 p-3 rounded-lg text-white text-sm"></div>
+    </div>
+
+    <!-- Firebase (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCvLYIhxscfR7fyUW0qBGMd2SMfRMBv2j0",
+            authDomain: "renteasy-12c60.firebaseapp.com",
+            projectId: "renteasy-12c60",
+            storageBucket: "renteasy-12c60.firebasestorage.app",
+            messagingSenderId: "1061764678588",
+            appId: "1:1061764678588:web:ac801c6587c6b5f04321b9"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        const statusBox = document.getElementById("statusBox");
+        function showStatus(msg, type = "success") {
+            statusBox.innerText = msg;
+            statusBox.className = "mt-4 p-3 rounded-lg text-white text-sm " + (type === "error" ? "bg-red-500" : "bg-green-600");
+            statusBox.style.display = "block";
+            setTimeout(()=>{ statusBox.style.display = "none"; }, 3500);
+        }
+
+        // show email from URL
+        const email = new URLSearchParams(window.location.search).get("email");
+        if (email) {
+            document.getElementById("emailText").innerText = "A verification link has been sent to: " + email;
+        }
+
+        // If the user is signed in (we keep user signed-in after signup), we can check their verified status
+        // Poll every 5 seconds. If verified, redirect to login_signup.html
+        let interval = null;
+        function startPolling() {
+            if (interval) clearInterval(interval);
+            interval = setInterval(async () => {
+                try {
+                    if (auth.currentUser) {
+                        await auth.currentUser.reload();
+                        if (auth.currentUser.emailVerified) {
+                            clearInterval(interval);
+                            showStatus("Email verified! Redirecting to sign in...", "success");
+                            setTimeout(() => window.location.href = "login_signup.html", 1200);
+                        }
+                    }
+                } catch (e) {
+                    // ignore
+                }
+            }, 5000);
+        }
+
+        // start polling when auth state is ready
+        auth.onAuthStateChanged((user) => {
+            // start polling only when user object exists
+            if (user) startPolling();
+        });
+
+        // Resend button — only works if user is signed in here
+        resendBtn.onclick = async () => {
+            if (!auth.currentUser) {
+                showStatus("You must be signed in (from signup) to resend. Please open the sign-in page and sign in.", "error");
+                return;
+            }
+            try {
+                await auth.currentUser.sendEmailVerification();
+                showStatus("Verification email resent!", "success");
+            } catch (err) {
+                showStatus(err.message || "Unable to resend", "error");
+            }
+        };
+
+        // Also attempt to start polling immediately (in case user is already signed in)
+        if (auth.currentUser) startPolling();
+    </script>
+</body>
+</html>
