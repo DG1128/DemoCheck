@@ -305,22 +305,35 @@ async function createNewListing() {
 <!-- ---------------------------------------------------------
      DUAL UPLOAD SYSTEM (BACKEND + SUPABASE FOR DRAFTS)
 ---------------------------------------------------------- -->
+<!-- REQUIRED AUTH + SUPABASE INIT - DOES NOT MODIFY ANY EXISTING CODE -->
 <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-storage-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-firebase.initializeApp({
+const firebaseConfig = {
     apiKey: "AIzaSyCvLYIhxscfR7fyUW0qBGMd2SMfRMBv2j0",
     authDomain: "renteasy-12c60.firebaseapp.com",
     projectId: "renteasy-12c60",
     storageBucket: "renteasy-12c60.firebasestorage.app",
     messagingSenderId: "1061764678588",
     appId: "1:1061764678588:web:ac801c6587c6b5f04321b9"
-});
+};
 
-window.auth = firebase.auth(); // so your existing code works
+firebase.initializeApp(firebaseConfig);
+window.auth = firebase.auth();        // <-- Needed for your upload function
+window.db = firebase.firestore();
+
+// SUPABASE INIT (NO CHANGE TO YOUR LOGIC)
+window.supabase = window.supabase?.createClient?.(
+    "https://uarxteqripvirnxyjpdb.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVhcnh0ZXFyaXB2aXJueHlqcGRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5MDQ3MDgsImV4cCI6MjA3OTQ4MDcwOH0.NaV0SCknH7MA02OCCmpelyC3ikqPgFie9koPjSfx_Mo"
+);
 </script>
+
+
 
 <script type="module">
 /*
@@ -359,17 +372,13 @@ videoInput.onchange = () => {
   alert('Video selected: ' + selectedVideo.name);
 };
 
-// STEP 0 → FORCE backend upload by blocking draft mode
-localStorage.removeItem("draftId");   // <-- ADD THIS here
-
 document.querySelector('button.bg-primary a')?.addEventListener('click', (e) => {
   e.preventDefault();
   const draftId = getDraftId();
   const listingId = localStorage.getItem('listingId');
+  // ❗ Upload to backend always in Step-0
+uploadMediaToBackend(listingId);
 
-  // This logic remains untouched
-  if (draftId) uploadMediaToSupabase(draftId);
-  else uploadMediaToBackend(listingId);
 });
 
 async function uploadMediaToBackend(listingId) {

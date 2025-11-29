@@ -217,7 +217,7 @@ function getDraftId() {
 --------------------------------*/
 async function createNewListingOnBackend() {
   try {
-    const res = await fetch('https://tuan-mouilla-trophically.ngrok-free.dev/add-step1');
+    const res = await fetch('https://democheck-zv5p.onrender.com/create-listing');
     const data = await res.json();
     if (data.status === 'success') {
       localStorage.setItem('listingId', data.listing_id);
@@ -276,22 +276,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   } else {
     localStorage.setItem('draftId', draftId);
+const { data, error } = await supabase
+  .from("drafts")
+  .select("*")
+  .eq("id", draftId)
+  .single();
 
-    const { data } = await supabase
-      .from('drafts')
-      .select('*')
-      .eq('id', draftId)
-      .single()
-      .catch(() => ({}));
+if (!error && data) {
+  document.getElementById('property-title').value = data.title ?? '';
+  document.getElementById('property-description').value = data.description ?? '';
+  document.getElementById('property-type').value = data.property_type ?? 'Apartment';
+  document.getElementById('bedrooms').value = data.bedrooms ?? '';
+  document.getElementById('bathrooms').value = data.bathrooms ?? '';
+  document.getElementById('total-area').value = data.area_sqft ?? '';
+}
 
-    if (data) {
-      document.getElementById('property-title').value = data.title || '';
-      document.getElementById('property-description').value = data.description || '';
-      document.getElementById('property-type').value = data.property_type || '';
-      document.getElementById('bedrooms').value = data.bedrooms || '';
-      document.getElementById('bathrooms').value = data.bathrooms || '';
-      document.getElementById('total-area').value = data.area_sqft || '';
-    }
   }
 
   /* ------------------------------

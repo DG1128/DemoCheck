@@ -262,8 +262,7 @@
                     <button class="font-bold underline underline-offset-2"><a href="step_1.html">Back</a></button>
                     <button
                         class="flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold transition-colors hover:bg-primary/90">
-                        <a onclick="saveStep2ToBackend(collectAmenitiesFromForm())" href="step_3.html">Continue</a>
-
+                        <a onclick="saveStep2()" href="step_3.html">Continue</a>
 
                     </button>
                 </div>
@@ -315,18 +314,16 @@ function collectAmenitiesFromForm() {
   return obj;
 }
 
-const BACKEND_URL = "https://tuan-mouilla-trophically.ngrok-free.dev"; 
-
 async function saveStep2ToBackend(payload) {
-    const API = `${BACKEND_URL}/add-step2`; // FULL POST URL
+  const API = "https://democheck-zv5p.onrender.com/add-step2";
 
-    const res = await fetch(API, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-    });
+  const res = await fetch(API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
 
-    return res.json();
+  return res.json();
 }
 
 /* -------------------------------------------------
